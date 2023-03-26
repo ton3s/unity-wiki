@@ -44,8 +44,8 @@ site_author: 'Antonio Cunanan'
 # | - https://www.mkdocs.org/user-guide/configuration/#copyright                                           |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-# copyright: |
-#   &copy; Antonio Cunanan
+copyright: |
+  &copy; Author
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
@@ -421,7 +421,7 @@ extra:
   # +------------------------------------------------------------------------------------------------------+
   # social:
   #   - icon: 'fontawesome/brands/github'
-  #     link: 'https://github.com/ton3s/unity-wiki'
+  #     link: 'https://github.com/ton3s/mkdocs-template'
 
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
@@ -484,6 +484,11 @@ markdown_extensions:
       guess_lang: false
   - markdown.extensions.toc:
       permalink: true
+  - codehilite:
+      guess_lang: False
+      use_pygments: True
+      noclasses: True
+      pygments_style: monokai
   #- pymdownx.arithmex:
   #- pymdownx.b64:
   #- pymdownx.betterem:
@@ -508,8 +513,3 @@ markdown_extensions:
   #- pymdownx.tabbed:
   #- pymdownx.tasklist:
   #- pymdownx.tilde:
-  - codehilite:
-      guess_lang: False
-      use_pygments: True
-      noclasses: True
-      pygments_style: monokai
