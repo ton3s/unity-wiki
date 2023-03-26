@@ -125,4 +125,18 @@ void Update()
 
 ## [Interacting With The World](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987884#overview)
 
--
+- Remove the `Capsule Collider` component on the `player` and add a `Character Controller` instead
+- Create a reference to the `CharacterController` in the `PlayerController` script:
+
+```cs
+public CharacterController characterController;
+```
+
+- Change the following code in the `Update()` method:
+
+```cs
+- transform.position += movement * moveSpeed * Time.deltaTime;
++ characterController.Move(movement * moveSpeed * Time.deltaTime);
+```
+
+- Add a `cube` and rotate it to create a slope. May need to change the `slope limit` on the `CharacterController` if you find you can't go up the slope!
