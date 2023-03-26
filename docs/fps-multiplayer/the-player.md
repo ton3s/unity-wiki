@@ -140,3 +140,23 @@ public CharacterController characterController;
 ```
 
 - Add a `cube` and rotate it to create a slope. May need to change the `slope limit` on the `CharacterController` if you find you can't go up the slope!
+
+## [Moving At Different Speeds](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987886#overview)
+
+- To allow the player to run when `left shift` key is being held, we add the following to the `PlayerController` script:
+
+```cs
+public float runSpeed = 8f;
+private float activeMoveSpeed;
+
+void Update()
+{
+  activeMoveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : moveSpeed;
+
+  - movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized;
+  + movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
+
+  - characterController.Move(movement * moveSpeed * Time.deltaTime);
+  + characterController.Move(movement * Time.deltaTime);
+}
+```
