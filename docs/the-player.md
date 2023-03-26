@@ -1,6 +1,6 @@
 # The Player
 
-## Video 2
+## Setting Up
 
 - Import the assets using `The Unarchiver` app on the Mac
 - Create a `plane` with the scale of `100, 100, 100`

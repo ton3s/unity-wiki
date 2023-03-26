@@ -521,4 +521,5 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - FPS Multiplayer:
+      - Overview: fps/overview.md
       - The Player: the-player.md
