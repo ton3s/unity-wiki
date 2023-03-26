@@ -74,9 +74,9 @@ docs_dir: docs/
 # | - https://www.mkdocs.org/user-guide/configuration/#edit_uri                                            |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-repo_name: tom3s/unity-wiki
+repo_name: ton3s/unity-wiki
 repo_url: https://github.com/ton3s/unity-wiki
-#edit_uri: tree/master/docs # Uncomment to define a different URI/URL for the "edit" option
+edit_uri: tree/master/docs # Uncomment to define a different URI/URL for the "edit" option
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
