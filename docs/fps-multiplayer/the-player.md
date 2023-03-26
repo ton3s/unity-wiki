@@ -23,3 +23,28 @@
 > When rotating around the `view point` you may need to adjust the `Clipping Planes` of the camera if you are seeing the inside of the goggles
 
 - Create a `PlayerController` script and attach to the `player`
+
+## [Making The Camera Move](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987872#overview)
+
+- Open the `PlayerController` script and add a `public Transform viewPoint` and add the reference to the `View Point` in the `inspector`
+- Add a `public float mouseSensitivity = 1f`
+- Add a `private float verticalRotStore` to store the vertical rotation for looking up and down
+- Add a `private Vector2 mouseInput`
+- In the `Update()` method add the following code to allow mouse movement along the x axis to rotate the players view along the y axis:
+
+```cs
+void Update()
+{
+    // Get the mouse input on the x and y axes and multiply it by a sensitivity value
+    mouseInput = new Vector2(
+        Input.GetAxisRaw("Mouse X"),
+        Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
+
+    // Set the rotation of the object to a new quaternion that has the same x and z angles as before,
+    // but has the y angle increased by the mouse input on the x axis.
+    transform.rotation = Quaternion.Euler(
+        transform.rotation.eulerAngles.x,
+        transform.rotation.eulerAngles.y + mouseInput.x,
+        transform.rotation.eulerAngles.z);
+}
+```
