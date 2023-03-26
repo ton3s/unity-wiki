@@ -30,7 +30,7 @@
 site_name: Unity Wiki
 site_description: 'A wiki to document course notes'
 site_author: 'Antonio Cunanan'
-#site_url: 'https://www.andre601.ch/mkdocs-template' # Uncomment to set a canonical URL
+site_url: 'https://ton3s.github.io/unity-wiki/' # Uncomment to set a canonical URL
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
@@ -521,4 +521,4 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - FPS Multiplayer:
-      - The Player: fps-multplayer/the-player.md
+      - The Player: /fps-multplayer/the-player.md
