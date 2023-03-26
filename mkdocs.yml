@@ -80,24 +80,6 @@ edit_uri: tree/master/docs # Uncomment to define a different URI/URL for the "ed
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
-# | The "nav" option is where you define the navigation to show in MkDocs.                                 |
-# |                                                                                                        |
-# | Depending on the theme you use will the resulting Navigation look different.                           |
-# |                                                                                                        |
-# | You can set different types of navigations. Either just the path, the path with a separate title or    |
-# | an external URL.                                                                                       |
-# |                                                                                                        |
-# | Read More:                                                                                             |
-# | - https://www.mkdocs.org/user-guide/configuration/#documentation-layout                                |
-# |                                                                                                        |
-# +--------------------------------------------------------------------------------------------------------+
-nav:
-  - Overview: index.md
-  - FPS Multiplayer:
-      - The Player: index.md
-
-# +--------------------------------------------------------------------------------------------------------+
-# |                                                                                                        |
 # | The "theme" section allows you to define what theme to use.                                            |
 # | It is also used for theme-specific options, but also for advanced stuff such as theme-extensions, if   |
 # | the theme actually supports it.                                                                        |
@@ -522,3 +504,21 @@ markdown_extensions:
       use_pygments: True
       noclasses: True
       pygments_style: monokai
+
+# +--------------------------------------------------------------------------------------------------------+
+# |                                                                                                        |
+# | The "nav" option is where you define the navigation to show in MkDocs.                                 |
+# |                                                                                                        |
+# | Depending on the theme you use will the resulting Navigation look different.                           |
+# |                                                                                                        |
+# | You can set different types of navigations. Either just the path, the path with a separate title or    |
+# | an external URL.                                                                                       |
+# |                                                                                                        |
+# | Read More:                                                                                             |
+# | - https://www.mkdocs.org/user-guide/configuration/#documentation-layout                                |
+# |                                                                                                        |
+# +--------------------------------------------------------------------------------------------------------+
+nav:
+  - Overview: index.md
+  - FPS Multiplayer:
+      - The Player: fps-multplayer/the-player.md
