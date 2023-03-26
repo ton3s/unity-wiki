@@ -27,9 +27,9 @@
 # | - https://www.mkdocs.org/user-guide/configuration/#site_url                                            |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-site_name: MkDocs Template
-site_description: 'A template for future MkDocs wikis'
-site_author: 'Andre_601'
+site_name: Unity Wiki
+site_description: 'A wiki to document course notes'
+site_author: 'Antonio Cunanan'
 #site_url: 'https://www.andre601.ch/mkdocs-template' # Uncomment to set a canonical URL
 
 # +--------------------------------------------------------------------------------------------------------+
@@ -59,7 +59,6 @@ copyright: |
 # +--------------------------------------------------------------------------------------------------------+
 docs_dir: docs/
 
-
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
 # | These options allow to define a Repository to link to.                                                 |
@@ -75,8 +74,8 @@ docs_dir: docs/
 # | - https://www.mkdocs.org/user-guide/configuration/#edit_uri                                            |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-repo_name: Andre601/mkdocs-template
-repo_url: https://github.com/Andre601/mkdocs-template
+repo_name: tom3s/unity-wiki
+repo_url: https://github.com/ton3s/unity-wiki
 #edit_uri: tree/master/docs # Uncomment to define a different URI/URL for the "edit" option
 
 # +--------------------------------------------------------------------------------------------------------+
@@ -106,7 +105,6 @@ nav:
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
 theme:
-
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "name" option is where you define the theme to use.                                              |
@@ -119,7 +117,7 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   name: 'material'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The Material theme allows "theme-extsnions", meaning that you can override parts of it by either     |
@@ -134,7 +132,7 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #custom_dir: 'theme'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "favicon" option allows you to set your own image/icon to use in the browser-tab.                |
@@ -152,7 +150,7 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #favicon: 'assets/images/favicon.png'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "palette" section is a Material option and allows you to define specific style options such as   |
@@ -167,7 +165,6 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   palette:
-  
     # +----------------------------------------------------------------------------------------------------+
     # |                                                                                                    |
     # | The "scheme" option is used to define the Color Scheme used by Material.                           |
@@ -179,8 +176,8 @@ theme:
     # | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-scheme              |
     # |                                                                                                    |
     # +----------------------------------------------------------------------------------------------------+
-    scheme: 'slate'
-    
+    scheme: 'default'
+
     # +----------------------------------------------------------------------------------------------------+
     # |                                                                                                    |
     # | "primary" is used to set the main color of the Material Theme.                                     |
@@ -192,7 +189,7 @@ theme:
     # |                                                                                                    |
     # +----------------------------------------------------------------------------------------------------+
     primary: 'indigo'
-    
+
     # +----------------------------------------------------------------------------------------------------+
     # |                                                                                                    |
     # | The "accent" is used for moments such as hovering over links.                                      |
@@ -202,7 +199,7 @@ theme:
     # |                                                                                                    |
     # +----------------------------------------------------------------------------------------------------+
     accent: 'indigo'
-    
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | With the "font" option can you set a different font to use.                                          |
@@ -219,7 +216,7 @@ theme:
   #font:
   #  text: 'Roboto'
   #  code: 'Roboto Mono'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | Material suppors more than 40 different languages which you can set using the "language" option      |
@@ -235,7 +232,7 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #language: 'en'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "direction" option is commonly used together with the "language" option.                         |
@@ -248,7 +245,7 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #direction: 'ltr'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "features" option allows you to enable specific features of Material, by adding them to the      |
@@ -267,35 +264,35 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   features:
-  # Announce
-  #
-  #- announce.dismiss # Adds a "X" button to dismiss a news banner/mark it as read.*
-  
-  # Header
-  #
-  #- header.autohide # Hide header when user scrolls past a specific point.
-  
-  # Navigation:
-  #
-  #- navigation.expand      # Expand all collapsable sections.
-  #- navigation.instant     # Instant loading pages.
-  #- navigation.indexes     # Attach pages directly to Sections. Incompatible with "toc.integrate"
-  #- navigation.sections    # Render top sections as groups.
-  - navigation.tabs         # Render top sections as tabs at the top.
+    # Announce
+    #
+    #- announce.dismiss # Adds a "X" button to dismiss a news banner/mark it as read.*
+
+    # Header
+    #
+    #- header.autohide # Hide header when user scrolls past a specific point.
+
+    # Navigation:
+    #
+    #- navigation.expand      # Expand all collapsable sections.
+    #- navigation.instant     # Instant loading pages.
+    #- navigation.indexes     # Attach pages directly to Sections. Incompatible with "toc.integrate"
+    #- navigation.sections    # Render top sections as groups.
+    - navigation.tabs # Render top sections as tabs at the top.
   #- navigation.tabs.sticky # Tabs won't disappear when scrolling down. Requires "navigation.tabs".
   #- navigation.top         # Adds a "Back to top" that is shown when scrolling up.
   #- navigation.tracking    # Updates the url with highlighted section anchor.
-  
+
   # Search
   #
   #- search.highlight # Search will highlight the searched word(s) on the page.*
   #- search.share     # Adds an option to share a search query link.*
   #- search.suggest   # Search will suggest the likeliest completion for a word.*
-  
+
   # Table of Contents
   #
   #- toc.integrate          # Include the TOC sections in the left navugation.
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "icon" section allows you to define a icon to use for the logo and/or repository.                |
@@ -324,7 +321,7 @@ theme:
   icon:
     logo: 'material/library'
     repo: 'material/library'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "admonition" option allows you to set a different icon for each admonition type.                 |
@@ -415,7 +412,7 @@ extra:
   social:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/Andre601/mkdocs-template'
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | Allows you to hide the "Made with Material for MkDocs" text in the footer of the pages by setting    |
@@ -426,7 +423,7 @@ extra:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #generator: true
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "manifest" option allows you to define a .manifest file to use.                                  |
@@ -438,7 +435,7 @@ extra:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   #manifest: manifest.webmanifest
-  
+
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
   # | The "alternate" option can be used to create a selector to switch languages.                         |
