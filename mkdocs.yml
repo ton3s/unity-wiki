@@ -497,7 +497,7 @@ markdown_extensions:
   #- pymdownx.striphtml:
   #- pymdownx.superfences:
   #- pymdownx.tabbed:
-  #- pymdownx.tasklist:
+  - pymdownx.tasklist:
   #- pymdownx.tilde:
   - codehilite:
       guess_lang: False
