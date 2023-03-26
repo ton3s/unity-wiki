@@ -12,3 +12,11 @@
 - Make the `cube` a child of the `player` and set the default of the googles to the z-axis (default)
 - Add both the `plane` and the `cubes` as a child of to a `environment` object
 - Save the `scene`
+
+## [Understanding Looking Around](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987868#overview)
+
+- Make the `camera` a child of the `player` so it moves with the player
+- Position the `camera` at eye level with the `player`
+- Create an empty `view point` object and move the `camera` as a child. This will allow the player to look up and down without the body also rotating!
+- Rotate the `player` and observe the `game camera` rotating as well. The `player` body will be used to look left to right and the `view point` will be used to look up and down
+- Create a `PlayerController` script and attach to the `player`
