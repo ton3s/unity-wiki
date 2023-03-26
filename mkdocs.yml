@@ -291,7 +291,7 @@ theme:
     - navigation.expand # Expand all collapsable sections.
     #- navigation.instant     # Instant loading pages.
     #- navigation.indexes     # Attach pages directly to Sections. Incompatible with "toc.integrate"
-    - navigation.sections # Render top sections as groups.
+    #- navigation.sections # Render top sections as groups.
     #- navigation.tabs # Render top sections as tabs at the top.
     #- navigation.tabs.sticky # Tabs won't disappear when scrolling down. Requires "navigation.tabs".
     - navigation.top # Adds a "Back to top" that is shown when scrolling up.
@@ -441,7 +441,7 @@ extra:
   # | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#generator-notice          |
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
-  generator: false
+  generator: true
 
 # +------------------------------------------------------------------------------------------------------+
 # |                                                                                                      |
