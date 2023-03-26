@@ -93,3 +93,27 @@ void Start()
   Cursor.lockState = CursorLockMode.Locked;
 }
 ```
+
+## [Making the Player Move](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987878#overview)
+
+- Add the following to the `PlayerController` script:
+
+```cs
+public float moveSpeed = 5f;
+private Vector3 moveDir, movement;
+
+void Update()
+{
+  //..
+
+  // Get the horizontal and vertical input axes and create a new direction vector from them.
+  moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+  // Create a new movement vector from the direction vector and the object's forward and right vectors.
+  // Normalize the result to ensure that the movement vector has a magnitude of 1.
+  movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized;
+
+  // Move the object in the direction of the movement vector, scaled by the movement speed and the delta time.
+  transform.position += movement * moveSpeed * Time.deltaTime;
+}
+```
