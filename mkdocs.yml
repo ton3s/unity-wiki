@@ -404,35 +404,35 @@ theme:
 # | - https://www.mkdocs.org/user-guide/configuration/#extra                                               |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-# extra:
-# +------------------------------------------------------------------------------------------------------+
-# |                                                                                                      |
-# | The social section allows you to set a list of entries which would be displayed in the footer of the |
-# | page.                                                                                                |
-# |                                                                                                      |
-# | Each entry has the exact same options:                                                               |
-# | - icon: Path to the SVG icon to use. See "icon" section for available icon sets.                     |
-# | - link: URL to which the icon should link.                                                           |
-# | - name: Optional Name that would be displayed as title on hover.                                     |
-# |                                                                                                      |
-# | Read More:                                                                                           |
-# | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links              |
-# |                                                                                                      |
-# +------------------------------------------------------------------------------------------------------+
-# social:
-#   - icon: 'fontawesome/brands/github'
-#     link: 'https://github.com/ton3s/unity-wiki'
+extra:
+  # +------------------------------------------------------------------------------------------------------+
+  # |                                                                                                      |
+  # | The social section allows you to set a list of entries which would be displayed in the footer of the |
+  # | page.                                                                                                |
+  # |                                                                                                      |
+  # | Each entry has the exact same options:                                                               |
+  # | - icon: Path to the SVG icon to use. See "icon" section for available icon sets.                     |
+  # | - link: URL to which the icon should link.                                                           |
+  # | - name: Optional Name that would be displayed as title on hover.                                     |
+  # |                                                                                                      |
+  # | Read More:                                                                                           |
+  # | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links              |
+  # |                                                                                                      |
+  # +------------------------------------------------------------------------------------------------------+
+  # social:
+  #   - icon: 'fontawesome/brands/github'
+  #     link: 'https://github.com/ton3s/unity-wiki'
 
-# +------------------------------------------------------------------------------------------------------+
-# |                                                                                                      |
-# | Allows you to hide the "Made with Material for MkDocs" text in the footer of the pages by setting    |
-# | this to "true".                                                                                      |
-# |                                                                                                      |
-# | Read More:                                                                                           |
-# | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#generator-notice          |
-# |                                                                                                      |
-# +------------------------------------------------------------------------------------------------------+
-generator: true
+  # +------------------------------------------------------------------------------------------------------+
+  # |                                                                                                      |
+  # | Allows you to hide the "Made with Material for MkDocs" text in the footer of the pages by setting    |
+  # | this to "true".                                                                                      |
+  # |                                                                                                      |
+  # | Read More:                                                                                           |
+  # | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#generator-notice          |
+  # |                                                                                                      |
+  # +------------------------------------------------------------------------------------------------------+
+  generator: true
 
 # +------------------------------------------------------------------------------------------------------+
 # |                                                                                                      |
