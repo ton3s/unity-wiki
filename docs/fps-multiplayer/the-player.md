@@ -64,11 +64,32 @@ void Update()
     // Clamp the vertical rotation between -60 and 60 degrees to prevent the camera from rotating too far up or down.
     verticalRotStore = Mathf.Clamp(verticalRotStore, -60f, 60f);
 
-    // Set the rotation of the camera to a new quaternion that has the x angle set to the negated vertical rotation value, which rotates the camera up and down.
+    // Set the rotation of the camera to a new quaternion that has the x angle set to the vertical rotation value, which rotates the camera up and down.
     // The y and z angles are set to the current y and z angles of the camera to preserve the horizontal orientation.
     viewPoint.rotation = Quaternion.Euler(
-        -verticalRotStore,
+        verticalRotStore,
         viewPoint.rotation.eulerAngles.y,
         viewPoint.rotation.eulerAngles.z);
+}
+```
+
+## [Inverting & Hiding The Mouse](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987876#overview)
+
+- Add a `public bool invertLook` variable
+- Change `verticalRotStore` based on this boolean value
+
+```cs
+- verticalRotStore += mouseInput.y;
++ verticalRotStore = invertLook ? verticalRotStore - mouseInput.y : verticalRotStore + mouseInput.y;
+```
+
+- Hide the mouse by updating the `Start()` method with the following:
+
+```cs
+void Start()
+{
+  // CursorLockMode.Locked value sets the lock state of the cursor to locked,
+  // which hides the cursor and locks it to the center of the game window.
+  Cursor.lockState = CursorLockMode.Locked;
 }
 ```
