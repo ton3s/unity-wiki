@@ -160,3 +160,23 @@ void Update()
   + characterController.Move(movement * Time.deltaTime);
 }
 ```
+
+## [Setting Camera Position](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987890#overview)
+
+- Remove the `camera` from the `player` so that it doesn't disappear if the player dies
+- To achieve this, add the following to the `PlayerController` script:
+
+```cs
+private Camera playerCamera;
+
+void Start() {
+  // ..
+  playerCamera = Camera.main;
+}
+
+// Happen after Update()
+void LateUpdate() {
+  playerCamera.transform.position = viewPoint.position;
+  playerCamera.transform.rotation = viewPoint.rotation;
+}
+```
