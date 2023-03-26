@@ -48,3 +48,27 @@ void Update()
         transform.rotation.eulerAngles.z);
 }
 ```
+
+## [Looking Up & Down](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987874#overview)
+
+- Add the following code in `Update()` to allow the player to look up and down while clamping the viewing angle to 60 degrees:
+
+```cs
+void Update()
+{
+    // ...
+
+    // Accumulate the vertical rotation based on the user's mouse input.
+    verticalRotStore += mouseInput.y;
+
+    // Clamp the vertical rotation between -60 and 60 degrees to prevent the camera from rotating too far up or down.
+    verticalRotStore = Mathf.Clamp(verticalRotStore, -60f, 60f);
+
+    // Set the rotation of the camera to a new quaternion that has the x angle set to the negated vertical rotation value, which rotates the camera up and down.
+    // The y and z angles are set to the current y and z angles of the camera to preserve the horizontal orientation.
+    viewPoint.rotation = Quaternion.Euler(
+        -verticalRotStore,
+        viewPoint.rotation.eulerAngles.y,
+        viewPoint.rotation.eulerAngles.z);
+}
+```
