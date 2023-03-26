@@ -26,10 +26,15 @@
 
 ## [Making The Camera Move](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987872#overview)
 
-- Open the `PlayerController` script and add a `public Transform viewPoint` and add the reference to the `View Point` in the `inspector`
-- Add a `public float mouseSensitivity = 1f`
-- Add a `private float verticalRotStore` to store the vertical rotation for looking up and down
-- Add a `private Vector2 mouseInput`
+- Open the `PlayerController` script and add the following variables:
+
+```cs
+public Transform viewPoint;
+public float mouseSensitivity = 1f;
+private float verticalRotStore;
+private Vector2 mouseInput;
+```
+
 - In the `Update()` method add the following code to allow mouse movement along the x axis to rotate the players view along the y axis:
 
 ```cs
@@ -117,3 +122,7 @@ void Update()
   transform.position += movement * moveSpeed * Time.deltaTime;
 }
 ```
+
+## [Interacting With The World](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987884#overview)
+
+-
