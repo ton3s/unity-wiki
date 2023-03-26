@@ -404,62 +404,62 @@ theme:
 # | - https://www.mkdocs.org/user-guide/configuration/#extra                                               |
 # |                                                                                                        |
 # +--------------------------------------------------------------------------------------------------------+
-extra:
-  # +------------------------------------------------------------------------------------------------------+
-  # |                                                                                                      |
-  # | The social section allows you to set a list of entries which would be displayed in the footer of the |
-  # | page.                                                                                                |
-  # |                                                                                                      |
-  # | Each entry has the exact same options:                                                               |
-  # | - icon: Path to the SVG icon to use. See "icon" section for available icon sets.                     |
-  # | - link: URL to which the icon should link.                                                           |
-  # | - name: Optional Name that would be displayed as title on hover.                                     |
-  # |                                                                                                      |
-  # | Read More:                                                                                           |
-  # | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links              |
-  # |                                                                                                      |
-  # +------------------------------------------------------------------------------------------------------+
-  # social:
-  #   - icon: 'fontawesome/brands/github'
-  #     link: 'https://github.com/ton3s/mkdocs-template'
+# extra:
+# +------------------------------------------------------------------------------------------------------+
+# |                                                                                                      |
+# | The social section allows you to set a list of entries which would be displayed in the footer of the |
+# | page.                                                                                                |
+# |                                                                                                      |
+# | Each entry has the exact same options:                                                               |
+# | - icon: Path to the SVG icon to use. See "icon" section for available icon sets.                     |
+# | - link: URL to which the icon should link.                                                           |
+# | - name: Optional Name that would be displayed as title on hover.                                     |
+# |                                                                                                      |
+# | Read More:                                                                                           |
+# | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links              |
+# |                                                                                                      |
+# +------------------------------------------------------------------------------------------------------+
+# social:
+#   - icon: 'fontawesome/brands/github'
+#     link: 'https://github.com/ton3s/mkdocs-template'
 
-  # +------------------------------------------------------------------------------------------------------+
-  # |                                                                                                      |
-  # | Allows you to hide the "Made with Material for MkDocs" text in the footer of the pages by setting    |
-  # | this to "true".                                                                                      |
-  # |                                                                                                      |
-  # | Read More:                                                                                           |
-  # | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#generator-notice          |
-  # |                                                                                                      |
-  # +------------------------------------------------------------------------------------------------------+
-  #generator: true
+# +------------------------------------------------------------------------------------------------------+
+# |                                                                                                      |
+# | Allows you to hide the "Made with Material for MkDocs" text in the footer of the pages by setting    |
+# | this to "true".                                                                                      |
+# |                                                                                                      |
+# | Read More:                                                                                           |
+# | - https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#generator-notice          |
+# |                                                                                                      |
+# +------------------------------------------------------------------------------------------------------+
+#generator: true
 
-  # +------------------------------------------------------------------------------------------------------+
-  # |                                                                                                      |
-  # | The "manifest" option allows you to define a .manifest file to use.                                  |
-  # |                                                                                                      |
-  # | A .manifest file makes the doc act like a web-application and tells it how to behave when installed. |
-  # |                                                                                                      |
-  # | Read More:                                                                                           |
-  # | - https://squidfunk.github.io/mkdocs-material/reference/meta-tags/#adding-a-web-app-manifest         |
-  # |                                                                                                      |
-  # +------------------------------------------------------------------------------------------------------+
-  #manifest: manifest.webmanifest
+# +------------------------------------------------------------------------------------------------------+
+# |                                                                                                      |
+# | The "manifest" option allows you to define a .manifest file to use.                                  |
+# |                                                                                                      |
+# | A .manifest file makes the doc act like a web-application and tells it how to behave when installed. |
+# |                                                                                                      |
+# | Read More:                                                                                           |
+# | - https://squidfunk.github.io/mkdocs-material/reference/meta-tags/#adding-a-web-app-manifest         |
+# |                                                                                                      |
+# +------------------------------------------------------------------------------------------------------+
+#manifest: manifest.webmanifest
 
-  # +------------------------------------------------------------------------------------------------------+
-  # |                                                                                                      |
-  # | The "alternate" option can be used to create a selector to switch languages.                         |
-  # |                                                                                                      |
-  # | Using this requires you to create a specific, more complicated MkDocs setup.                         |
-  # |                                                                                                      |
-  # | A Setup Guide for multi-language docs can be found here:                                             |
-  # | https://github.com/squidfunk/mkdocs-material/discussions/2346                                        |
-  # |                                                                                                      |
-  # | Read More:                                                                                           |
-  # | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector    |
-  # |                                                                                                      |
-  # +------------------------------------------------------------------------------------------------------+
-  #alternate:
+# +------------------------------------------------------------------------------------------------------+
+# |                                                                                                      |
+# | The "alternate" option can be used to create a selector to switch languages.                         |
+# |                                                                                                      |
+# | Using this requires you to create a specific, more complicated MkDocs setup.                         |
+# |                                                                                                      |
+# | A Setup Guide for multi-language docs can be found here:                                             |
+# | https://github.com/squidfunk/mkdocs-material/discussions/2346                                        |
+# |                                                                                                      |
+# | Read More:                                                                                           |
+# | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector    |
+# |                                                                                                      |
+# +------------------------------------------------------------------------------------------------------+
+#alternate:
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
@@ -484,11 +484,6 @@ markdown_extensions:
       guess_lang: false
   - markdown.extensions.toc:
       permalink: true
-  - codehilite:
-      guess_lang: False
-      use_pygments: True
-      noclasses: True
-      pygments_style: monokai
   #- pymdownx.arithmex:
   #- pymdownx.b64:
   #- pymdownx.betterem:
@@ -513,3 +508,8 @@ markdown_extensions:
   #- pymdownx.tabbed:
   #- pymdownx.tasklist:
   #- pymdownx.tilde:
+  - codehilite:
+      guess_lang: False
+      use_pygments: True
+      noclasses: True
+      pygments_style: monokai
