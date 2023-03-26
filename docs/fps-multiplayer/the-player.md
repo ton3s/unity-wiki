@@ -1,6 +1,6 @@
 # The Player
 
-## Setting Up
+## [Setting Up](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987866#overview)
 
 - Import the assets using `The Unarchiver` app on the Mac
 - Create a `plane` with the scale of `100, 100, 100`
