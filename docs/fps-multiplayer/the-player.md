@@ -19,4 +19,7 @@
 - Position the `camera` at eye level with the `player`
 - Create an empty `view point` object and move the `camera` as a child. This will allow the player to look up and down without the body also rotating!
 - Rotate the `player` and observe the `game camera` rotating as well. The `player` body will be used to look left to right and the `view point` will be used to look up and down
+
+> When rotating around the `view point` you may need to adjust the `Clipping Planes` of the camera if you are seeing the inside of the goggles
+
 - Create a `PlayerController` script and attach to the `player`
