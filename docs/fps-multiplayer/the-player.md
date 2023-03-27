@@ -235,3 +235,16 @@ public LayerMask groundLayers;
 - Create empty object under `player` called `Ground Check Point` and set the `y` to `-0.95`
 
 ![Ground Check Point](images/ground-check-point.png)
+
+- Attach the `Ground Check Point` to the `PlayerController` script
+- Add a new layer `Ground` under `Environment` object and apply it to all the child objects as well
+- Set `groundLayers` reference in the `PlayerController` script to `Ground` layer
+
+```cs
+  // Check if the player is grounded by using a Raycast to project a ray against the ground layers
+  isGrounded = Physics.Raycast(groundCheckpoint.position, Vector3.down, 0.25f, groundLayers);
+
+  // Jumping
+  - if (Input.GetButtonDown("Jump")) movement.y = jumpForce;
+  + if (Input.GetButtonDown("Jump") && isGrounded) movement.y = jumpForce;
+```
