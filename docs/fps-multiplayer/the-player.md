@@ -28,7 +28,7 @@
 
 - Open the `PlayerController` script and add the following variables:
 
-```
+```cs
 public Transform viewPoint;
 public float mouseSensitivity = 1f;
 private float verticalRotStore;
@@ -37,7 +37,7 @@ private Vector2 mouseInput;
 
 - In the `Update()` method add the following code to allow mouse movement along the x axis to rotate the players view along the y axis:
 
-```
+```cs
 void Update()
 {
     // Get the mouse input on the x and y axes and multiply it by a sensitivity value
@@ -58,7 +58,7 @@ void Update()
 
 - Add the following code in `Update()` to allow the player to look up and down while clamping the viewing angle to 60 degrees:
 
-```
+```cs
 void Update()
 {
     // ...
@@ -83,14 +83,14 @@ void Update()
 - Add a `public bool invertLook` variable
 - Change `verticalRotStore` based on this boolean value
 
-```
+```cs
 - verticalRotStore += mouseInput.y;
 + verticalRotStore = invertLook ? verticalRotStore - mouseInput.y : verticalRotStore + mouseInput.y;
 ```
 
 - Hide the mouse by updating the `Start()` method with the following:
 
-```
+```cs
 void Start()
 {
   // CursorLockMode.Locked value sets the lock state of the cursor to locked,
@@ -103,7 +103,7 @@ void Start()
 
 - Add the following to the `PlayerController` script:
 
-```
+```cs
 public float moveSpeed = 5f;
 private Vector3 moveDir, movement;
 
