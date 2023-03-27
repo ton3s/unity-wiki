@@ -221,3 +221,17 @@ void Update() {
   + movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
 }
 ```
+
+## [Staying Grounded](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987896#questions)
+
+- To ensure the `player` only jumps when they are grounded, add the following to the `PlayerController` script:
+
+```cs
+public Transform groundCheckpoint;
+private bool isGrounded;
+public LayerMask groundLayers;
+```
+
+- Create empty object under `player` called `Ground Check Point` and set the `y` to `-0.95`
+
+![Ground Check Point](images/ground-check-point.png)
