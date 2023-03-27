@@ -201,3 +201,23 @@ void Update() {
   movement.y += Physics.gravity.y * Time.deltaTime;
 }
 ```
+
+## [Jumping](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987894#questions)
+
+- To enable the `player` to jump, add the following to the `PlayerController` script:
+
+```cs
+public float jumpForce = 12f;
+public float gravityModifier = 2.5f;
+
+void Update() {
+  // ..
+
+  if (Input.GetButtonDown("Jump")) {
+    movement.y = jumpForce;
+  }
+
+  - movement.y += Physics.gravity.y * Time.deltaTime;
+  + movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
+}
+```
