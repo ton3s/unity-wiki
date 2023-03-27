@@ -254,3 +254,23 @@ private void Shoot() {
   }
 }
 ```
+
+## [Displaying Current Weapon Heat](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987926#questions)
+
+- Right-click on the `canvas`
+- Add a `UI slider` and name it `Temp Slider`
+- Remove the slide area and background from the `slider`
+- Remove the source image for the fill and change its color to orange
+- Drag the edges of the `slider` box to match the anchor points of the holder object
+- Add a UI image to show the endpoint of the `slider`
+- Add an outline to the `slider` and image
+- Add a UI text to display the label `Weapon Temp`
+- Set the anchor point of the `slider` to the bottom right corner
+- Set the anchor point of the `text` to the bottom right corner
+- Create a reference to the `slider` in the UI controller script
+- In the `UIController` script, set the maximum value of the slider to be equal to the max heat value
+- Update the value of the slider in the `UIController` script after handling the shooting and overheating
+- Set the default value of the `slider` to zero on the canvas
+- Play the game to see the `slider` in action.
+
+![Weapon Temp](images/weapon-temp.png)
