@@ -135,3 +135,63 @@ private void Shoot() {
   shotCounter = timeBetweenShots;
 }
 ```
+
+## [Weapon Overheating](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987918#questions)
+
+- Open up the player controller script and add the following public floats at the top:
+  - maxHeatValue: the maximum heat level that the gun can reach before overheating. Set it to 10.
+  - heatPerShot: the amount of heat that is added to the gun's heat level every time a shot is fired. Set it to 1.
+  - coolingRate: the rate at which the gun's heat level decreases when it's not being fired. Set it to 4.
+  - overheatedCoolRate: the rate at which the gun's heat level decreases when it's overheated. Set it to 5.
+- Add the following private variables:
+  - heatCounter: a float that will keep track of the gun's current heat level.
+  - overheated: a bool that will keep track of whether the gun is currently overheated or not.
+- In the shoot function, add the following lines of code to increase the heat counter:
+  - heatCounter += heatPerShot;
+  - Check if heatCounter is greater than or equal to maxHeatValue. If it is, set heatCounter to maxHeatValue and set overheated to true.
+- Before shooting, add a check to see if the gun is currently overheated. If it is, the gun cannot fire.
+- After shooting, decrease the heatCounter by coolingRate \* Time.deltaTime if the gun is not overheated. If it is overheated, decrease it by overheatedCoolRate \* Time.deltaTime.
+- Add a check to see if the heatCounter has decreased to zero. If it has, set overheated to false and set heatCounter to zero.
+- Set up a way for the player to see the gun's heat level visually in the game. This can be done by creating a UI element that displays the heat level as a bar or number. Update the UI element every frame to reflect the current heat level.
+- That's it! With these steps, you should have a functioning ammo system that prevents players from shooting forever and encourages tactical gameplay.
+
+```cs
+public float maxHeatValue = 10f;
+public float heatPerShot = 1f;
+public float coolingRate = 4f;
+public float overheatedCoolRate = 5f;
+private float heatCounter;
+private bool overheated;
+
+void Update()
+{
+  // ..
+
+  if (!overheated)
+  {
+    // Shoot if player left clicks
+    // ..
+    heatCounter -= coolingRate * Time.deltaTime;
+  }
+  else
+  {
+    heatCounter -= overheatedCoolRate * Time.deltaTime;
+    if (heatCounter < 0) overheated = false;
+  }
+  if (heatCounter < 0) heatCounter = 0f;
+
+  //..
+}
+
+private void Shoot()
+{
+  //..
+
+  heatCounter += heatPerShot;
+  if (heatCounter >= maxHeatValue)
+  {
+      heatCounter = maxHeatValue;
+      overheated = true;
+  }
+}
+```
