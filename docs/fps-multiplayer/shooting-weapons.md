@@ -82,8 +82,8 @@ private void Shoot() {
 - Set the position of the impact object to the hit point using the `hit.point` command.
 - Set the rotation of the impact object to the surface normal using the `Quaternion.LookRotation(hit.normal, Vector3.up)` command.
 - To prevent flickering, move the impact object slightly away from the surface using the `hit.normal * 0.002f` command.
-- Destroy the impact object after a certain amount of time using the `Destroy(bulletImpact, 5f)` command.
-- Remove the mesh collider from the impact obwject prefab to prevent layering of impact objects.
+- Destroy the impact object after a certain amount of time using the `Destroy(bulletImpactObject, 5f)` command.
+- Remove the `mesh collider` from the impact object prefab to prevent layering of impact objects.
 
 ```cs
 public GameObject bulletImpact;
@@ -97,5 +97,41 @@ private void Shoot()
     GameObject bulletImpactObject = Instantiate(bulletImpact, hit.point + (hit.normal * 0.02f), Quaternion.LookRotation(hit.normal, Vector3.up));
     Destroy(bulletImpactObject, 5f);
   }
+}
+```
+
+## [Automatic Firing](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987916#questions)
+
+- In the `PlayerController` script, add a public float variable named `timeBetweenShots` and a private float variable named `shotCounter`.
+- Set the default value of `timeBetweenShots` to 0.1 (or any other desired value).
+- In the shooting code section, after shooting a bullet, set `shotCounter` to `timeBetweenShots`.
+- Check if the left mouse button is still being held down using the `GetMouseButton` function.
+- If the left mouse button is still being held down, decrement `shotCounter` by `Time.deltaTime`.
+- Check if `shotCounter` is less than or equal to zero. If it is, shoot a bullet again and set `shotCounter` back to `timeBetweenShots`.
+- To avoid repeating code, use the `shoot()` function that was created earlier for shooting bullets.
+
+```cs
+public float timeBetweenShots = 0.1f;
+private float shotCounter;
+
+void Update() {
+  //..
+
+  // Check if left mouse button is still held down
+  if (Input.GetMouseButton(0))
+  {
+      shotCounter -= Time.deltaTime;
+      if (shotCounter <= 0)
+      {
+          Shoot();
+          shotCounter = timeBetweenShots;
+      }
+  }
+}
+
+private void Shoot() {
+  //..
+
+  shotCounter = timeBetweenShots;
 }
 ```
