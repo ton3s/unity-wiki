@@ -269,8 +269,20 @@ private void Shoot() {
 - Set the anchor point of the `text` to the bottom right corner
 - Create a reference to the `slider` in the UI controller script
 - In the `UIController` script, set the maximum value of the slider to be equal to the max heat value
-- Update the value of the slider in the `UIController` script after handling the shooting and overheating
+- Update the value of the `slider` in the `UIController` script after handling the shooting and overheating
 - Set the default value of the `slider` to zero on the canvas
 - Play the game to see the `slider` in action.
 
 ![Weapon Temp](images/weapon-temp.png)
+
+## [Adding A Crosshair](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987928#questions)
+
+- Open the Unity Editor and navigate to the `Canvas` in the Hierarchy window.
+- Right-click on the `Canvas` and select `UI > Image` to add a new UI Image object to the `Canvas`.
+- Rename the new object to `Crosshairs`.
+- In the Inspector window, change the Source Image of the `Crosshairs` object to the desired crosshair image in the `Assets` folder.
+- Set the `Anchor Presets` to the middle of the `Canvas` to keep the crosshairs centered.
+- Set the color of the crosshairs to a darker color than white to make it more visible.
+- Set the scale of the crosshairs to `2x2` to make it bigger and more visible.
+- Adjust the position of the crosshairs as desired.
+- Save the changes and run the game to see the new crosshairs in action.
