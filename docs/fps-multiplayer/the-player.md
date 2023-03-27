@@ -248,3 +248,122 @@ public LayerMask groundLayers;
   - if (Input.GetButtonDown("Jump")) movement.y = jumpForce;
   + if (Input.GetButtonDown("Jump") && isGrounded) movement.y = jumpForce;
 ```
+
+## [Building The Game To Test](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987898#questions)
+
+- Go to `File -> Build Settings`
+- Click `Add Open Scenes` and select `Movement Testing`
+- To allow it to build quickly set `Resolution` to `Windowed` and `854 x 480`
+- Create a `Builds` folder and build the game
+- When you play the game you will notice we can't free our mouse!
+
+## [Freeing The Mouse](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987902#questions)
+
+- To free the mouse, add the following at the end of the `Update()` method:
+
+```cs
+// Handle the mouse in windowed mode
+if (Input.GetKeyDown(KeyCode.Escape)) Cursor.lockState = CursorLockMode.None;
+else if (Cursor.lockState == CursorLockMode.None
+    && Input.GetMouseButtonDown(0)) Cursor.lockState = CursorLockMode.Locked;
+```
+
+## Code Listing
+
+`PlayerController.cs`
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public Transform viewPoint;
+    public float mouseSensitivity = 1f;
+    private float verticalRotStore;
+    private Vector2 mouseInput;
+
+    public bool invertLook;
+
+    public float moveSpeed = 5f;
+    public float runSpeed = 8f;
+    private float activeMoveSpeed;
+    private Vector3 moveDir, movement;
+
+    public CharacterController characterController;
+    private Camera playerCamera;
+
+    public float jumpForce = 12f;
+    public float gravityModifier = 2.5f;
+
+    public Transform groundCheckpoint;
+    private bool isGrounded;
+    public LayerMask groundLayers;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // CursorLockMode.Locked value sets the lock state of the cursor to locked,
+        // which hides the cursor and locks it to the center of the game window.
+        Cursor.lockState = CursorLockMode.Locked;
+        playerCamera = Camera.main;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Get the mouse input on the x and y axes and multiply it by a sensitivity value
+        mouseInput = new Vector2(
+            Input.GetAxisRaw("Mouse X"),
+            Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
+
+        // Set the rotation of the object to a new quaternion that has the same x and z angles as before,
+        // but has the y angle increased by the mouse input on the x axis.
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            transform.rotation.eulerAngles.y + mouseInput.x,
+            transform.rotation.eulerAngles.z);
+
+        verticalRotStore = invertLook ? verticalRotStore - mouseInput.y : verticalRotStore + mouseInput.y;
+        verticalRotStore = Mathf.Clamp(verticalRotStore, -60f, 60f);
+
+        viewPoint.rotation = Quaternion.Euler(
+            verticalRotStore,
+            viewPoint.rotation.eulerAngles.y,
+            viewPoint.rotation.eulerAngles.z);
+
+        moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        activeMoveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : moveSpeed;
+
+        float yVelocity = movement.y;
+        movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
+        movement.y = yVelocity;
+
+        // Reset the yVelocity if we are grounded
+        if (characterController.isGrounded) movement.y = 0f;
+
+        // Check if the player is grounded by using a Raycast
+        isGrounded = Physics.Raycast(groundCheckpoint.position, Vector3.down, 0.25f, groundLayers);
+
+        // Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded) movement.y = jumpForce;
+
+        // Take into account gravity
+        movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
+        characterController.Move(movement * Time.deltaTime);
+
+        // Handle the mouse in windowed mode
+        if (Input.GetKeyDown(KeyCode.Escape)) Cursor.lockState = CursorLockMode.None;
+        else if (Cursor.lockState == CursorLockMode.None
+            && Input.GetMouseButtonDown(0)) Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    void LateUpdate()
+    {
+        playerCamera.transform.position = viewPoint.position;
+        playerCamera.transform.rotation = viewPoint.rotation;
+    }
+}
+```
