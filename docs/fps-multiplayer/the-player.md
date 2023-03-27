@@ -180,3 +180,24 @@ void LateUpdate() {
   playerCamera.transform.rotation = viewPoint.rotation;
 }
 ```
+
+## [Adding Gravity](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987890#overview)
+
+- Add the following to the `PlayerController` script:
+
+```cs
+void Update() {
+  // ..
+
+  // Temporary value for storing the previous movement.y value
+  float yVelocity = movement.y;
+  movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
+  movement.y = yVelocity;
+
+  // Reset the yVelocity if we are grounded
+  if (characterController.isGrounded) movement.y = 0f;
+
+  // Take into account gravity
+  movement.y += Physics.gravity.y * Time.deltaTime;
+}
+```
