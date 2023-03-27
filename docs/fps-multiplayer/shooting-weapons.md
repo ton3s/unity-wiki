@@ -73,3 +73,29 @@ private void Shoot() {
 - Save the bullet impact object as a prefab in the `Prefabs` folder so that it can be easily reused in the game.
 
 ![Bullet Impact Effect](images/bullet-impact-effect.png)
+
+## [Placing Impacts](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987914#questions)
+
+- Create a public game object `bullet impact` reference in the `PlayerController` script.
+- Make sure the `bullet impact` reference is assigned correctly on the player.
+- In the shoot function, use the `instantiate` command to create a copy of the `bullet impact` game object.
+- Set the position of the impact object to the hit point using the `hit.point` command.
+- Set the rotation of the impact object to the surface normal using the `Quaternion.LookRotation(hit.normal, Vector3.up)` command.
+- To prevent flickering, move the impact object slightly away from the surface using the `hit.normal * 0.002f` command.
+- Destroy the impact object after a certain amount of time using the `Destroy(bulletImpact, 5f)` command.
+- Remove the mesh collider from the impact obwject prefab to prevent layering of impact objects.
+
+```cs
+public GameObject bulletImpact;
+
+private void Shoot()
+{
+  // ..
+
+  if (Physics.Raycast(ray, out RaycastHit hit))
+  {
+    GameObject bulletImpactObject = Instantiate(bulletImpact, hit.point + (hit.normal * 0.02f), Quaternion.LookRotation(hit.normal, Vector3.up));
+    Destroy(bulletImpactObject, 5f);
+  }
+}
+```
