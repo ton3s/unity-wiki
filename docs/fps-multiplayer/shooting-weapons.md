@@ -195,3 +195,62 @@ private void Shoot()
   }
 }
 ```
+
+## [Overheated Indicator](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987922#questions)
+
+- Set up the display resolution for the game to Full HD.
+- Create a `Canvas` and set it up to match the Full HD resolution using Canvas Scalar as well as set `Match` to `Height`
+- Add a `TextMeshPro` object to the canvas with the words `Weapon Overheated` and customize its appearance.
+- Create a `UIController` script and attach it to the `Canvas`.
+- In the `UIController` script, make in a `singleton` by creating a public static instance of the script and assign it to the UI controller object in the `Awake()` method.
+- Use the `UIController` instance in other scripts to access the TextMeshPro object and modify its - appearance or visibility as needed.
+- Add code to turn off the overheated message when the gun is no longer overheated.
+
+`UIController.cs`
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class UIController : MonoBehaviour
+{
+    public static UIController Instance;
+    public TextMeshProUGUI overheatedMessage;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+}
+```
+
+`PlayerController.cs`
+
+```cs
+void Update() {
+  //..
+
+  if (heatCounter < 0)
+  {
+      overheated = false;
+      UIController.Instance.overheatedMessage.gameObject.SetActive(false);
+  }
+}
+
+private void Shoot() {
+  if (heatCounter >= maxHeatValue)
+  {
+      heatCounter = maxHeatValue;
+      overheated = true;
+      UIController.Instance.overheatedMessage.gameObject.SetActive(true);
+  }
+}
+```
