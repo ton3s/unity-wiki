@@ -312,3 +312,56 @@ public class Gun : MonoBehaviour
     public float heatPerShot = 1f;
 }
 ```
+
+## [Switching Weapons](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987932#questions)
+
+- In the player controller script, add a public gun array called `allGuns` and a private integer called `selectedGun`.
+- In the Unity inspector, add the guns you want to use to the `allGuns` list.
+- In the player controller script, in the Update function, add a conditional statement to check if the mouse scroll wheel is being scrolled up or down. If it's being scrolled up, increment the `selectedGun` value by one. If it's being scrolled down, decrement the `selectedGun` value by one.
+- Add a new function called `switch gun` that deactivates all guns in the `allGuns` list except for the one selected by the `selectedGun` value.
+- In the Update function, call the `switch gun` function after changing the `selectedGun` value.
+- In the Start function, call the `switch gun` function to activate the first gun in the `allGuns` list.
+- Play the game and use the scroll wheel to switch between guns.
+
+```cs
+public Gun[] allGuns;
+private int selectedGun;
+
+void Start() {
+  //..
+
+  SwitchGun()
+}
+
+void Update() {
+  //..
+
+  // Handle gun selection
+  if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
+  {
+    selectedGun++;
+    if (selectedGun >= allGuns.Length) selectedGun = 0;
+    SwitchGun()
+  }
+  if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f)
+  {
+    selectedGun--;
+    if (selectedGun < 0) selectedGun = allGuns.Length - 1;
+    SwitchGun()
+  }
+
+  // Handle the mouse in windowed mode
+  // ..
+}
+
+void SwitchGun()
+{
+  foreach(Gun gun in allGuns)
+  {
+      // Deactivate all guns
+      gun.gameObject.SetActive(false);
+  }
+  // Activate the selected gun
+  allGuns[selectedGun].gameObject.SetActive(true);
+}
+```
