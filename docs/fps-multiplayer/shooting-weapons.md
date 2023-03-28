@@ -286,3 +286,29 @@ private void Shoot() {
 - Set the scale of the crosshairs to `2x2` to make it bigger and more visible.
 - Adjust the position of the crosshairs as desired.
 - Save the changes and run the game to see the new crosshairs in action.
+
+## [Setting Up Multiple Weapons](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987930#questions)
+
+- The next step is to add the ability to switch between weapons in the game.
+- Start by setting up empty components on the player. Select the Viewpoint and right-click to create an empty child called `Gun Holder`. Create three more empty children called `Gun 1`, `Gun 2` and `Gun 3` under `Gun Holder`.
+- Add three 3D models for each gun. Drag them from the `models` folder in the `assets`, and make them children of each gun. The 3D models should face the wrong way, so select each model and rotate them 180 degrees on the y-axis.
+- Move the `Gun Holder` objects to the correct position, and move the guns slightly to the side.
+- Create a new script in the scripts folder and name it `Gun`. Remove the `Start()` and `Update()` methods and add a `public bool isAutomatic`, a `public float timeBetweenShots = 0.1f`, and a `public float heatPerShot = 1f` that will be added with each shot. Save the script.
+- Add the Gun script to each gun object and set the properties for each gun. The machine gun and rifle will be automatic, while the pistol will do 2 heat per shot. The rifle will fire slower and add more heat than the other guns.
+
+![Multiple Weapons](images/multiple-weapons.png)
+
+`Gun.cs`
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gun : MonoBehaviour
+{
+    public bool isAutomatic;
+    public float timeBetweenShots = 0.1f;
+    public float heatPerShot = 1f;
+}
+```
