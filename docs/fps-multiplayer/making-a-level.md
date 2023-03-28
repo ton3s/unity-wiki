@@ -70,7 +70,7 @@ public class SpawnManager : MonoBehaviour
   {
     foreach(Transform spawnPoint in spawnPoints)
     {
-        spawnPoint.gameObject.SetActive(false);
+      spawnPoint.gameObject.SetActive(false);
     }
   }
 
@@ -80,3 +80,21 @@ public class SpawnManager : MonoBehaviour
   }
 }
 ```
+
+## [Selecting Weapon With Number Keys](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987956#questions)
+
+- Open the Player Controller script in Unity.
+- Scroll down to where the weapon switching code is located and add the following:
+
+```cs
+for (int i = 0; i < allGuns.Length; i++)
+{
+  if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+  {
+    selectedGun = i;
+    SwitchGun();
+  }
+}
+```
+
+- Save the `PlayerController` script and test the game. Players should now be able to switch between weapons using number keys instead of the scroll wheel.
