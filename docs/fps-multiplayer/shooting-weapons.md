@@ -398,3 +398,304 @@ void Shoot() {
   + heatCounter += allGuns[selectedGun].heatPerShot;
 }
 ```
+
+## [Muzzle Flashes](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987938#questions/14662242)
+
+- Open the Models folder and drag the Muzzle Flash model into the scene at position (0,0,0).
+- Make the Muzzle Flash a child of each gun model (e.g. Pistol, Machine Gun, Rifle) and rotate it 180 degrees.
+- Assign each Muzzle Flash object to a public GameObject variable in the gun script, e.g. `public GameObject muzzleFlash`.
+- Deactivate all Muzzle Flash objects by default in the scene.
+- Add a `public float muzzleDisplayTime` as well as a `private float muzzleCounter`
+- In the `Shoot()` method, activate the Muzzle Flash when shooting a gun as well as reset the muzzleCounter:
+
+```cs
+allGuns[selectedGun].muzzleFlash.SetActive(true);
+muzzleCounter = muzzleDisplayTime;
+```
+
+- Add a timer to automatically deactivate the Muzzle Flash after a short period of time:
+
+```cs
+if (allGuns[selectedGun].muzzleFlash.activeInHierarchy)
+{
+    muzzleCounter -= Time.deltaTime;
+    if (muzzleCounter <= 0) allGuns[selectedGun].muzzleFlash.SetActive(false);
+}
+```
+
+- Assign a value to the `muzzleDisplayTime` variable, which determines how long the Muzzle Flash stays active. You can calculate this value based on your target frame rate, e.g. `1 / 60` for a 60 fps game.
+- Add a line of code to deactivate the Muzzle Flash whenever switching to a new weapon
+
+```cs
+void SwitchGun() {
+  //..
+  allGuns[selectedGun].muzzleFlash.SetActive(false);
+}
+```
+
+- Test the game and adjust the Muzzle Flash timer and position as needed to achieve the desired effect.
+
+## Code
+
+#### Gun.cs
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gun : MonoBehaviour
+{
+    public bool isAutomatic;
+    public float timeBetweenShots = 0.1f;
+    public float heatPerShot = 1f;
+    public GameObject muzzleFlash;
+}
+```
+
+#### PlayerController.cs
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public Transform viewPoint;
+    public float mouseSensitivity = 1f;
+    private float verticalRotStore;
+    private Vector2 mouseInput;
+
+    public bool invertLook;
+
+    public float moveSpeed = 5f;
+    public float runSpeed = 8f;
+    private float activeMoveSpeed;
+    private Vector3 moveDir, movement;
+
+    public CharacterController characterController;
+    private Camera playerCamera;
+
+    public float jumpForce = 12f;
+    public float gravityModifier = 2.5f;
+
+    public Transform groundCheckpoint;
+    private bool isGrounded;
+    public LayerMask groundLayers;
+
+    public GameObject bulletImpact;
+    // public float timeBetweenShots = 0.1f;
+    private float shotCounter;
+
+    public float maxHeatValue = 10f;
+    // public float heatPerShot = 1f;
+    public float coolingRate = 4f;
+    public float overheatedCoolRate = 5f;
+    private float heatCounter;
+    private bool overheated;
+
+    public float muzzleDisplayTime;
+    private float muzzleCounter;
+
+    public Gun[] allGuns;
+    private int selectedGun;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // CursorLockMode.Locked value sets the lock state of the cursor to locked,
+        // which hides the cursor and locks it to the center of the game window.
+        Cursor.lockState = CursorLockMode.Locked;
+        playerCamera = Camera.main;
+
+        UIController.Instance.weaponTempSlider.maxValue = maxHeatValue;
+
+        SwitchGun();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Get the mouse input on the x and y axes and multiply it by a sensitivity value
+        mouseInput = new Vector2(
+            Input.GetAxisRaw("Mouse X"),
+            Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
+
+        // Set the rotation of the object to a new quaternion that has the same x and z angles as before,
+        // but has the y angle increased by the mouse input on the x axis.
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            transform.rotation.eulerAngles.y + mouseInput.x,
+            transform.rotation.eulerAngles.z);
+
+        verticalRotStore = invertLook ? verticalRotStore - mouseInput.y : verticalRotStore + mouseInput.y;
+        verticalRotStore = Mathf.Clamp(verticalRotStore, -60f, 60f);
+
+        viewPoint.rotation = Quaternion.Euler(
+            verticalRotStore,
+            viewPoint.rotation.eulerAngles.y,
+            viewPoint.rotation.eulerAngles.z);
+
+        moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        activeMoveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : moveSpeed;
+
+        float yVelocity = movement.y;
+        movement = ((transform.forward * moveDir.z) + (transform.right * moveDir.x)).normalized * activeMoveSpeed;
+        movement.y = yVelocity;
+
+        // Reset the yVelocity if we are grounded
+        if (characterController.isGrounded) movement.y = 0f;
+
+        // Check if the player is grounded by using a Raycast
+        isGrounded = Physics.Raycast(groundCheckpoint.position, Vector3.down, 0.25f, groundLayers);
+
+        // Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded) movement.y = jumpForce;
+
+        // Take into account gravity
+        movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
+        characterController.Move(movement * Time.deltaTime);
+
+        if (allGuns[selectedGun].muzzleFlash.activeInHierarchy)
+        {
+            muzzleCounter -= Time.deltaTime;
+            if (muzzleCounter <= 0) allGuns[selectedGun].muzzleFlash.SetActive(false);
+        }
+
+        if (!overheated)
+        {
+            // Shoot if player left clicks
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+
+            // Check if left mouse button is still held down
+            if (Input.GetMouseButton(0) && allGuns[selectedGun].isAutomatic)
+            {
+                shotCounter -= Time.deltaTime;
+                if (shotCounter <= 0)
+                {
+                    Shoot();
+                }
+            }
+
+            heatCounter -= coolingRate * Time.deltaTime;
+        }
+        else
+        {
+            heatCounter -= overheatedCoolRate * Time.deltaTime;
+            if (heatCounter < 0)
+            {
+                overheated = false;
+                UIController.Instance.overheatedMessage.gameObject.SetActive(false);
+            }
+        }
+        if (heatCounter < 0) heatCounter = 0f;
+
+        UIController.Instance.weaponTempSlider.value = heatCounter;
+
+        // Handle gun selection
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
+        {
+            selectedGun++;
+            if (selectedGun >= allGuns.Length) selectedGun = 0;
+            SwitchGun();
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f)
+        {
+            selectedGun--;
+            if (selectedGun < 0) selectedGun = allGuns.Length - 1;
+            SwitchGun();
+        }
+
+
+        // Handle the mouse in windowed mode
+        if (Input.GetKeyDown(KeyCode.Escape)) Cursor.lockState = CursorLockMode.None;
+        else if (Cursor.lockState == CursorLockMode.None
+            && Input.GetMouseButtonDown(0)) Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    void LateUpdate()
+    {
+        playerCamera.transform.position = viewPoint.position;
+        playerCamera.transform.rotation = viewPoint.rotation;
+    }
+
+    private void Shoot()
+    {
+        // Create a new ray that goes from the center of the screen outwards.
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        // Set the origin of the ray to the position of the player's camera.
+        ray.origin = playerCamera.transform.position;
+
+        // If the raycast hits an object in the scene...
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // ...output the name of the object to the console.
+            Debug.Log("We hit " + hit.collider.gameObject.name);
+
+            GameObject bulletImpactObject = Instantiate(bulletImpact, hit.point + (hit.normal * 0.02f), Quaternion.LookRotation(hit.normal, Vector3.up));
+            Destroy(bulletImpactObject, 5f);
+        }
+
+        shotCounter = allGuns[selectedGun].timeBetweenShots;
+
+        heatCounter += allGuns[selectedGun].heatPerShot;
+        if (heatCounter >= maxHeatValue)
+        {
+            heatCounter = maxHeatValue;
+            overheated = true;
+            UIController.Instance.overheatedMessage.gameObject.SetActive(true);
+        }
+
+        // Muzzle flash
+        allGuns[selectedGun].muzzleFlash.SetActive(true);
+        muzzleCounter = muzzleDisplayTime;
+    }
+
+    void SwitchGun()
+    {
+        foreach(Gun gun in allGuns)
+        {
+            // Deactivate all guns
+            gun.gameObject.SetActive(false);
+        }
+        // Activate the selected gun
+        allGuns[selectedGun].gameObject.SetActive(true);
+
+        allGuns[selectedGun].muzzleFlash.SetActive(false);
+    }
+}
+```
+
+#### UIController.cs
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIController : MonoBehaviour
+{
+    public static UIController Instance;
+    public TextMeshProUGUI overheatedMessage;
+    public Slider weaponTempSlider;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+}
+```
