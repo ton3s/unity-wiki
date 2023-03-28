@@ -98,3 +98,5 @@ for (int i = 0; i < allGuns.Length; i++)
 ```
 
 - Save the `PlayerController` script and test the game. Players should now be able to switch between weapons using number keys instead of the scroll wheel.
+
+![FPS Complete](images/fps-complete.png)
