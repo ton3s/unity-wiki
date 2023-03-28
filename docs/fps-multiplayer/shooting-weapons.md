@@ -365,3 +365,36 @@ void SwitchGun()
   allGuns[selectedGun].gameObject.SetActive(true);
 }
 ```
+
+## [Making The Weapons Function Correctly](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987934#questions)
+
+- Open the `PlayerController` script in the editor.
+- Scroll down to the `Shoot()` function.
+- Comment out any areas where default values are used by adding two slashes at the beginning of the line.
+- Replace the default values with values from the `selectedGun` in the `allGuns` array. For example, instead of using the default `timeBetweenShots` value, get the `timeBetweenShots` value from the `selectedGun` in the `allGuns` array.
+- Use the `isAutomatic` check to determine whether the player is allowed to continue firing.
+- Save the changes to the script.
+- Test the changes by playing the game and switching between the different weapons. Ensure that each weapon behaves differently in terms of firing rate and other attributes.
+
+```cs
+// public float timeBetweenShots = 0.1f;
+// public float heatPerShot = 1f;
+
+void Update() {
+  //..
+
+  // Check if left mouse button is still held down
+  - if (Input.GetMouseButton(0)) { /*..*/ }
+  + if (Input.GetMouseButton(0) && allGuns[selectedGun].isAutomatic) { /*..*/ }
+}
+
+void Shoot() {
+  //..
+
+  - shotCounter = timeBetweenShots;
+  + shotCounter = allGuns[selectedGun].timeBetweenShots;
+
+  - heatCounter += heatPerShot;
+  + heatCounter += allGuns[selectedGun].heatPerShot;
+}
+```
