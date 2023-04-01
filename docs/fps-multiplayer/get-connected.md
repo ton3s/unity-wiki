@@ -24,8 +24,6 @@
 
 ## [Connecting To The Server](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987966#questions)
 
-The speaker is explaining how to create a simple networking system for a game using Photon Unity Networking (PUN). Here's a step-by-step breakdown of the process:
-
 - Create a new script called `Launcher` and open it in the script editor.
 - Make the launcher a static instance (`public static Launcher instance`).
 - In the `Awake()` function, assign the instance to `this`.
@@ -101,3 +99,39 @@ public class Launcher : MonoBehaviourPunCallbacks
   }
 }
 ```
+
+## [Setting Up Room Creation](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987970#questions)
+
+- Duplicate the existing `Loading Panel` and rename it to `Create Room Panel.`
+- Open the new panel and remove the `loading text.`
+- Add a `UI > Input Field - TextMeshPro` and rename it to `Room Name Input Field` to let users input the room's name.
+- Set the input field's width to 800 and height to 100.
+- Modify the placeholder text to guide the user (e.g., `enter room name here`) and adjust the font style and size.
+- Center the text component and adjust its font style and size.
+- Add a button to the panel, name it `Create Room` button, and position it appropriately.
+- Deactivate the `Create Room Panel.`
+- In the `Launcher` script, create references to the `Room Input Field` and the `Create Room Panel` by declaring two public variables.
+- Add the `Create Room Panel` to the list of `closable menus.`
+- Create a new function called `OpenRoomCreate()` to open the room creation screen and set the `Create Room panel` to active.
+- In Unity, connect the `Create Room Panel` and the input field to the public variables in the script.
+- Set up the `Create Room` button to call the `OpenRoomCreate()` function when clicked.
+- Test the `room creation panel` in Unity by playing the game and clicking the `Create Room` button.
+
+```cs
+public GameObject createRoomScreen;
+public TMP_InputField roomInputField;
+
+void CloseMenus()
+{
+  //..
+  createRoomScreen.SetActive(false);
+}
+
+public void OpenRoomCreate()
+{
+  CloseMenus();
+  createRoomScreen.SetActive(true);
+}
+```
+
+![Create Room](images/create-room.png)
