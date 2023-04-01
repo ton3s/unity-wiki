@@ -21,3 +21,83 @@
 - Add loading text to the loading panel using a UI TextMeshPro element. Customize the text appearance and positioning.
 - Import a 3D model of a city as a background for the menu scene. Adjust the position and rotation of the camera to create a visually appealing view.
 - Save the scene and proceed to the next steps, which will involve connecting the menu buttons to the actual game functionality.
+
+## [Connecting To The Server](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987966#questions)
+
+The speaker is explaining how to create a simple networking system for a game using Photon Unity Networking (PUN). Here's a step-by-step breakdown of the process:
+
+- Create a new script called `Launcher` and open it in the script editor.
+- Make the launcher a static instance (`public static Launcher instance`).
+- In the `Awake()` function, assign the instance to `this`.
+- Import Photon Unity Networking by adding `using Photon.Pun` at the top of the script.
+- Replace `MonoBehaviour` with `MonoBehaviourPunCallbacks`.
+- Add references for the loading screen, menu buttons, and loading text (TeåxtMeshPro element).
+- Create a void function called `CloseMenus()` to close any open menus.
+- In the `Start()` function, close all menus, then set the loading screen active and update the loading text to say `Connecting to Network.`
+- Connect to the Photon network using `PhotonNetwork.ConnectUsingSettings()`.
+- Create a public override void function called `OnConnectedToMaster()`.
+- In OnConnectedToMaster(), join the lobby using `PhotonNetwork.JoinLobby()` and update the loading text to say `Joining Lobby.`
+- Remove the menu buttons activation code from `OnConnectedToMaster()` as it will be moved to another function.
+- Create another override void function called `OnJoinedLobby()`.
+- In `OnJoinedLobby()`, activate the menu buttons.
+
+After completing these steps, you should have a basic networking system in place. When the game starts, it will display a loading screen with the text `Connecting to Network,` then briefly change to `Joining Lobby` before displaying the menu buttons. From this point, you can continue to implement creating and joining rooms for your game.
+
+`Launcher.cs`
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+using TMPro;
+
+public class Launcher : MonoBehaviourPunCallbacks
+{
+  public static Launcher instance;
+  public GameObject loadingScreen;
+  public TextMeshProUGUI loadingText;
+  public GameObject menuButtons;
+
+  private void Awake()
+  {
+    if (instance != null)
+    {
+      Destroy(gameObject);
+      return;
+    }
+    instance = this;
+    DontDestroyOnLoad(gameObject);
+  }
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    CloseMenus();
+    loadingScreen.SetActive(true);
+    loadingText.text = "Connecting To Network...";
+
+    PhotonNetwork.ConnectUsingSettings();
+  }
+
+  void CloseMenus()
+  {
+    loadingScreen.SetActive(false);
+    menuButtons.SetActive(false);
+  }
+
+  public override void OnConnectedToMaster()
+  {
+    PhotonNetwork.JoinLobby();
+    loadingText.text = "Joining Lobby...";
+  }
+
+  public override void OnJoinedLobby()
+  {
+    CloseMenus();
+    menuButtons.SetActive(true);
+  }
+}
+```
