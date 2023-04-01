@@ -16,3 +16,116 @@
 - Test the scrolling functionality by duplicating the room buttons and running the game. - Adjust the `ScrollView` settings as needed, such as changing the movement type to `Clamped` if you do not want the elastic bounce effect.
 
 ![Room Browser](images/room-browser.png)
+
+## [Making The Room Browser Work](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987988#questions)
+
+- Create a new script named "RoomButton" in the scripts folder.
+- Attach the `RoomButton` script to the room button GameObject in your game.
+- Open the RoomButton script in a code editor and add the following code:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using Photon.Realtime;
+
+public class RoomButton : MonoBehaviour
+{
+  public TextMeshProUGUI buttonText;
+
+  private RoomInfo info;
+
+  public void SetButtonDetails(RoomInfo inputInfo)
+  {
+    info = inputInfo;
+    buttonText.text = info.Name;
+  }
+}
+```
+
+- Add the following code in the `Launcher` script to manage the rooms in the game:
+
+```cs
+public GameObject roomBrowserScreen;
+public RoomButton theRoomButton;
+private List<RoomButton> allRoomButtons = new List<RoomButton>();
+private Dictionary<string, RoomInfo> cachedRoomsList = new Dictionary<string, RoomInfo>();
+
+public void OpenRoomBrowser()
+{
+  CloseMenus();
+  roomBrowserScreen.SetActive(true);
+}
+
+public void CloseRoomBrowser()
+{
+  CloseMenus();
+  menuButtons.SetActive(true);
+}
+
+// This method is called when the room list is updated.
+public override void OnRoomListUpdate(List<RoomInfo> roomList)
+{
+  // Update the cached room list with the new room list information.
+  UpdateCachedRoomList(roomList);
+}
+
+// This method updates the cached room list based on the provided room list.
+public void UpdateCachedRoomList(List<RoomInfo> roomList)
+{
+  // Iterate through the room list.
+  for (int i = 0; i < roomList.Count; i++)
+  {
+    RoomInfo info = roomList[i];
+
+    // If the room has been removed from the list, remove it from the cached room list.
+    if (info.RemovedFromList)
+    {
+      cachedRoomsList.Remove(info.Name);
+    }
+    else
+    {
+      // Otherwise, update or add the room to the cached room list.
+      cachedRoomsList[info.Name] = info;
+    }
+  }
+
+  // Update the room list buttons with the updated cached room list.
+  RoomListButtonUpdate(cachedRoomsList);
+}
+
+// This method updates the room list buttons based on the provided cached room list.
+void RoomListButtonUpdate(Dictionary<string, RoomInfo> cachedRoomList)
+{
+  // Clean up existing room buttons.
+  foreach (RoomButton rb in allRoomButtons)
+  {
+    Destroy(rb.gameObject);
+  }
+  allRoomButtons.Clear();
+  theRoomButton.gameObject.SetActive(false);
+
+  // Iterate through the cached room list and create new room buttons.
+  foreach (KeyValuePair<string, RoomInfo> roomInfo in cachedRoomList)
+  {
+    // Instantiate a new room button and set its parent.
+    RoomButton newButton = Instantiate(theRoomButton, theRoomButton.transform.parent);
+
+    // Set the new button's details with the room information.
+    newButton.SetButtonDetails(roomInfo.Value);
+
+    // Activate the new button.
+    newButton.gameObject.SetActive(true);
+
+    // Add the new button to the list of all room buttons.
+    allRoomButtons.Add(newButton);
+  }
+}
+```
+
+- In Unity, assign the `theRoomButton` and `roomBrowserScreen` GameObjects to their respective fields in the `Launcher` script component.
+- Create functions to open and close the room browser in the Launcher script, then wire up the `Find Room` button to call the `OpenRoomBrowser()` function and the `Leave` button to call the `CloseRoomBrowser()` function.
+- Test the game in Unity to ensure the room buttons are created, updated, and destroyed correctly when browsing available rooms.
+
+![Find Room](images/find-room.png)
