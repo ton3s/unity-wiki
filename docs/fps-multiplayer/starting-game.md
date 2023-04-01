@@ -19,7 +19,7 @@
 
 ## [Making The Room Browser Work](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987988#questions)
 
-- Create a new script named "RoomButton" in the scripts folder.
+- Create a new script named `RoomButton` in the scripts folder.
 - Attach the `RoomButton` script to the room button GameObject in your game.
 - Open the RoomButton script in a code editor and add the following code:
 
@@ -177,3 +177,59 @@ public void QuitGame()
   Application.Quit();
 }
 ```
+
+## [Listing Players](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987994#questions)
+
+- In Unity, make necessary changes to the room panel by duplicating the room browser panel and modifying it accordingly.
+- Create a UI TextMeshPro object in the scroll view's content and name it `Player Name Label`. Make sure it's centered and deactivated by default.
+- In the `Launcher` script, create references to the `playerNameLabel` object, a list of `TextMeshProUGUI` objects called `allPlayerNames`.
+- Assign a random nickname to each player as they join the lobby by setting `PhotonNetwork.NickName` to a random number in string format.
+- Create a new private function called `ListAllPlayers()` in the launcher script.
+- Inside the `ListAllPlayers()` function, destroy any existing player name labels in the `allPlayerNames` list, then clear the list.
+- Get the list of players in the room from `PhotonNetwork` and store it in a `Player` array called `players`.
+- Loop through the `players` array and instantiate a `newPlayerLabel` for each player. - Set the text of the label to the player's nickname, activate the label, and add it to the `allPlayerNames` list.
+- Call the `ListAllPlayers` function when a player joins a room.
+- Assign the `playerNameLabel` object in Unity to the appropriate field in the `Launcher` script.
+- Test the implementation by building and running the game. Check if the list of players updates correctly when a new player joins the room.
+- To fix the issue of not seeing all the players when a new player joins, you need to update the list of players whenever a new player joins the room. To do this, override the `OnPlayerEnteredRoom` function in the `Launcher` script and call the `ListAllPlayers` function within it.
+
+```cs
+public TextMeshProUGUI playerNameLabel;
+private List<TextMeshProUGUI> allPlayerNames = new List<TextMeshProUGUI>();
+
+public override void OnJoinedLobby()
+{
+    //..
+
+    // Generate a random nickname for a player
+    PhotonNetwork.NickName = Random.Range(0, 1000).ToString();
+}
+
+public override void OnJoinedRoom()
+{
+  // ..
+  ListAllPlayers();
+}
+
+private void ListAllPlayers()
+{
+  // Clear out existing players
+  foreach(TextMeshProUGUI player in allPlayerNames)
+  {
+    Destroy(player.gameObject);
+  }
+  allPlayerNames.Clear();
+
+  // Retrieve the current list of players and save to the array
+  Player[] players = PhotonNetwork.PlayerList;
+  for (int i = 0; i < players.Length; i++)
+  {
+    TextMeshProUGUI newPlayerLabel = Instantiate(playerNameLabel, playerNameLabel.transform.parent);
+    newPlayerLabel.text = players[i].NickName;
+    newPlayerLabel.gameObject.SetActive(true);
+    allPlayerNames.Add(newPlayerLabel);
+  }
+}
+```
+
+![Random Nicknames](images/random-nicknames.png)
