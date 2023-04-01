@@ -233,3 +233,33 @@ public void CloseErrorScreen()
 ```
 
 ![My Room](images/same-room-error.png)
+
+## [Leaving A Room](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987984#questions)
+
+- In the `Launcher` script, create a new public function called `LeaveRoom()` which will be called when the leave button is clicked.
+- In the `LeaveRoom()` function, tell Photon to leave the room with the following command: `PhotonNetwork.LeaveRoom();`
+- Close the current menus by calling the `CloseMenus();` function.
+- Update the loading text to inform the user that they are leaving the room: `loadingText.text = "Leaving Room...";`
+- Set the loading screen to active by using `loadingScreen.SetActive(true);`
+- Create a new public override function called `OnLeftRoom()` which will be called when Photon detects that the user has left the room.
+- In the `OnLeftRoom()` function, close the current menus (which should include the loading menu) by calling `CloseMenus();`
+- Set the main menu buttons to active by using `menuButtons.SetActive(true);`
+- Save the script and return to the Unity editor.
+- On the room panel, assign the `LeaveRoom()` function to the leave button's onClick event.
+- Test the functionality by running the game, joining the lobby, creating a room, and then leaving the room. The loading screen should briefly appear, and the user should be returned to the main menu.
+
+```cs
+public void LeaveRoom()
+{
+  PhotonNetwork.LeaveRoom();
+  CloseMenus();
+  loadingText.text = "Leaving Room...";
+  loadingScreen.SetActive(true);
+}
+
+public override void OnLeftRoom()
+{
+  CloseMenus();
+  menuButtons.SetActive(true);
+}
+```
