@@ -162,3 +162,18 @@ public void JoinRoom(RoomInfo inputInfo)
   Launcher.instance.JoinRoom(info);
 }
 ```
+
+## [Quiting The Game](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987992#questions)
+
+- Open the `Launcher` script in your code editor.
+- At the bottom of the `Launcher` script, add the following:
+
+```cs
+public void QuitGame()
+{
+  #if UNITY_EDITOR
+  UnityEditor.EditorApplication.isPlaying = false;
+  #endif
+  Application.Quit();
+}
+```
