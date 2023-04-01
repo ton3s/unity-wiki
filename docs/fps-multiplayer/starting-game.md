@@ -129,3 +129,36 @@ void RoomListButtonUpdate(Dictionary<string, RoomInfo> cachedRoomList)
 - Test the game in Unity to ensure the room buttons are created, updated, and destroyed correctly when browsing available rooms.
 
 ![Find Room](images/find-room.png)
+
+## [Joining A Room](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987990#questions)
+
+- In the `Launcher` script, create a new function called `JoinRoom()` that takes in a `RoomInfo` object as an argument called inputInfo. This function will handle the process of joining a room.
+  In the `RoomButton` script, create another function called `OpenRoom()`. This function will tell the launcher script's instance to run the `JoinRoom()` function, passing in the stored information about the room that the user wants to join.
+- Back in the `Launcher` script, within the `JoinRoom()` function, use the `PhotonNetwork.JoinRoom` method to join the room by passing in the room name from the `inputInfo` object: `inputInfo.Name`.
+- After joining the room, close the open menus, update the loading text to `Joining Room`, and activate the loading screen.
+- Now, go back to Unity, and on the `Room Browser Panel`, find the `Room Button` object under the `Content` object.
+- Configure the `Room Button` object to run the `RoomButton.OpenRoom` function when clicked.
+- Test the implementation by running two instances of the game, one within Unity and another using an older build of the game.
+- Create a room in one instance and use the `Room Browser` in the other instance to find and join the room.
+- Test the functionality of leaving and rejoining the room.
+
+`Launcher.cs`
+
+```cs
+public void JoinRoom(RoomInfo inputInfo)
+{
+  PhotonNetwork.JoinRoom(inputInfo.Name);
+  CloseMenus();
+  loadingText.text = "Joining Room";
+  loadingScreen.SetActive(true);
+}
+```
+
+`RoomButton.cs`
+
+```cs
+ public void OpenRoom()
+{
+  Launcher.instance.JoinRoom(info);
+}
+```
