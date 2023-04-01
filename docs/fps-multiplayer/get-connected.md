@@ -197,3 +197,39 @@ public override void OnJoinedRoom()
 ```
 
 ![My Room](images/my-room.png)
+
+## [Handling Creation Errors](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987978#questions)
+
+- Create an `Error Panel` by duplicating the `Loading Panel` and renaming it to `error panel.`
+- Change the error panel's text to `Error Text` and set its color to `red` to indicate a warning.
+- Add a `Close` button at the bottom of the error panel to allow users to close the error screen.
+- In the `Launcher` script, add a `public GameObject errorScreen` and a `public TextMeshProUGUI errorText` for references to the error panel and its text.
+- In the `CloseMenus()` function, add `errorScreen.SetActive(false);` to hide the error screen when other menus are closed.
+- In the `Launcher` script, create an override method for handling room creation failure: `public override void OnCreateRoomFailed(short returnCode, string message)`
+- Inside the `OnCreateRoomFailed()` method, set the error text to display the failure message: `errorText.text = "Failed to create room: " + message;`
+- Close other menus and activate the error screen with `CloseMenus();` and `errorScreen.SetActive(true);`
+- Create a new function to close the error screen and return to the main menu: `public void CloseErrorScreen().`
+- In the `CloseErrorScreen()` function, call `CloseMenus();` and set the main menu buttons to be active: `menuButtons.SetActive(true);`
+- In the Unity editor, assign the `CloseErrorScreen()` function to the `Close` button on the error panel.
+- Assign the error panel and error text references in the `Launcher` script component within the Unity editor.
+- Test the error handling functionality by running two instances of the game, creating a room with the same name in both instances, and ensuring the error message is displayed when room creation fails in the second instance.
+
+```cs
+public GameObject errorScreen;
+public TextMeshProUGUI errorText;
+
+public override void OnCreateRoomFailed(short returnCode, string message)
+{
+  errorText.text = "Failed to create room: " + message;
+  CloseMenus();
+  errorScreen.SetActive(true);
+}
+
+public void CloseErrorScreen()
+{
+  CloseMenus();
+  menuButtons.SetActive(true);
+}
+```
+
+![My Room](images/same-room-error.png)
