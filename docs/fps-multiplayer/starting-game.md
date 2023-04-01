@@ -233,3 +233,24 @@ private void ListAllPlayers()
 ```
 
 ![Random Nicknames](images/random-nicknames.png)
+
+## [Updating The Player List](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987996#questions)
+
+- In your `Launcher` script, add two new override functions:
+  - `public override void OnPlayerEnteredRoom(Player newPlayer)`: This function will be executed when a player enters the room.
+  - `public override void OnPlayerLeftRoom(Player otherPlayer)`: This function will be executed when a player leaves the room.
+- In the `OnPlayerEnteredRoom()` and `OnPlayerLeftRoom()` function, relist all the players in the room by clearing the list and adding the players again.
+
+> **Note**: Make sure to update the `Leave Room` button in the room panel to actually call the `Leave Room` function instead of just closing the room browser. This will ensure that the player properly leaves the room and avoids any errors when attempting to create a new room while still being in another room.
+
+```cs
+public override void OnPlayerEnteredRoom(Player newPlayer)
+{
+  ListAllPlayers();
+}
+
+public override void OnPlayerLeftRoom(Player otherPlayer)
+{
+  ListAllPlayers();
+}
+```
