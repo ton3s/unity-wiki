@@ -135,3 +135,34 @@ public void OpenRoomCreate()
 ```
 
 ![Create Room](images/create-room.png)
+
+## [Creating A Room](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987972#questions)
+
+- In the `Launcher` script, create a new function called "CreateRoom()"
+- Save the script and assign the function to the "Create Room" button in Unity.
+- Go back to the script and add an if statement to ensure that the player has entered a room name.
+- Use the `string.IsNullOrEmpty()` function to check if the input field is empty.
+- If the input field is not empty, call `PhotonNetwork.CreateRoom()` to create a new room with the player's input as the room name.
+- To set a maximum number of players for the room, create a reference to the `RoomOptions` class. This requires adding `using Photon.Realtime;` at the top of the script.
+- Create a `RoomOptions` variable called `options` and set it to a `new RoomOptions` instance.
+- Set the maximum number of players for the room by assigning a value to options.MaxPlayers (e.g., `options.MaxPlayers = 8;`).
+- Pass the `options` variable as a parameter when creating the room with `PhotonNetwork.CreateRoom()`.
+- Close any open menus, set the loading text to `Creating Room`, and activate the loading screen.
+- Save the script and test the room creation functionality in Unity.
+
+```cs
+using Photon.Realtime;
+
+public void CreateRoom()
+{
+  if (!string.IsNullOrEmpty(roomInputField.text))
+  {
+    RoomOptions options = new RoomOptions();
+    options.MaxPlayers = 8;
+    PhotonNetwork.CreateRoom(roomInputField.text, options);
+    CloseMenus();
+    loadingText.text = "Creating Room...";
+    loadingScreen.SetActive(true);
+  }
+}
+```
