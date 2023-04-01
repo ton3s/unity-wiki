@@ -166,3 +166,34 @@ public void CreateRoom()
   }
 }
 ```
+
+## [Joining The Created Room](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987976#questions)
+
+- Close the `Create Room` panel in the Unity editor.
+- Duplicate the `Loading Panel`, and rename the new panel to `Room Panel.`
+- Make the `Room Panel` visible.
+- Modify the loading text to `Room Name Text,` move it to the top of the screen, and adjust its anchors accordingly.
+- Add a UI button to the room panel, anchor it to the bottom, name it `Leave Button,` and set its text to `Leave Room.`
+- In the `Launcher` script, create references to the room panel and room text.
+- Add `public GameObject roomScreen` and `public TextMeshProUGUI `roomNameText` variables.
+- In the same script, scroll down to the `Create Room` section, and create a new override method: `override void OnJoinedRoom()`. Remove the base method call, so only your custom functionality remains.
+- Inside the `OnJoinedRoom()` method, first, close the menus by ensuring that `roomScreen.SetActive(false)` is called.
+- Set `roomScreen.SetActive(true)` to make the room screen visible when the player joins the room.
+- Update the room name text by setting `roomNameText.text = PhotonNetwork.CurrentRoom.Name;` This displays the name of the currently connected room.
+- Save the script and return to the Unity editor to let it compile.
+- Assign the `roomScreen` and `roomNameText` references in the `Launcher` script component within the Unity editor.
+- Test the functionality by playing the Unity project. Enter a menu, create a room, and observe that the room is joined, displaying the room information on the room panel.
+
+```cs
+public GameObject roomScreen;
+public TextMeshProUGUI roomNameText;
+
+public override void OnJoinedRoom()
+{
+  CloseMenus();
+  roomScreen.SetActive(true);
+  roomNameText.text = PhotonNetwork.CurrentRoom.Name;
+}
+```
+
+![My Room](images/my-room.png)
