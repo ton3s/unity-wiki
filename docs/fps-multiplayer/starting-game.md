@@ -191,7 +191,7 @@ public void QuitGame()
 - Call the `ListAllPlayers` function when a player joins a room.
 - Assign the `playerNameLabel` object in Unity to the appropriate field in the `Launcher` script.
 - Test the implementation by building and running the game. Check if the list of players updates correctly when a new player joins the room.
-- To fix the issue of not seeing all the players when a new player joins, you need to update the list of players whenever a new player joins the room. To do this, override the `OnPlayerEnteredRoom` function in the `Launcher` script and call the `ListAllPlayers` function within it.
+- To fix the issue of not seeing all the players when a new player joins, you need to update the list of players whenever a new player joins the room.
 
 ```cs
 public TextMeshProUGUI playerNameLabel;
@@ -338,3 +338,48 @@ public void SetNickname()
 - Test the game in Unity to see if the player names are being saved and displayed correctly in the game.
 
 ![Set Username](images/set-username.png)
+
+## [Starting The Game](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25988002#questions)
+
+- Duplicate the `Leave` button in the room panel and name it `Start Game`.
+- Ensure the button has `no function` assigned to avoid any accidental actions.
+- Go to the `Launcher` script in the menu canvas.
+- Set `PhotonNetwork.AutomaticallySyncScene = true` to allow the Photon network to sync the scene information.
+- Create a public string variable called `levelToPlay` and assign the level name (`Scene Name`) you want to load.
+- Create a public function named `StartGame()` and add the following code:
+
+```cs
+public void StartGame()
+{
+  PhotonNetwork.LoadLevel(levelToPlay);
+}
+```
+
+- Build and test the game to make sure the button works correctly.
+- Create a `public GameObject startButton` in the launcher script.
+- Check if the player is the master client using `PhotonNetwork.IsMasterClient`.
+- If the player is the master client, set the start button to active, otherwise set it to inactive.
+
+```cs
+public override void OnJoinedRoom()
+{
+  CloseMenus();
+  roomScreen.SetActive(true);
+  roomNameText.text = PhotonNetwork.CurrentRoom.Name;
+  ListAllPlayers();
+
+  // Check if we are the master
+  if (PhotonNetwork.IsMasterClient)
+  {
+    startButton.SetActive(true);
+  }
+  else
+  {
+    startButton.SetActive(false);
+  }
+}
+```
+
+- Assign the start button in the menu canvas to the appropriate button in the room panel.
+- Save and build the game again to test the changes.
+- After completing these steps, the start game button should only be active for the master client, and pressing it should load the specified level for all players in the room.
