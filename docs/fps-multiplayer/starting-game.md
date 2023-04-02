@@ -163,7 +163,7 @@ public void JoinRoom(RoomInfo inputInfo)
 }
 ```
 
-## [Quiting The Game](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987992#questions)
+## [Quitting The Game](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987992#questions)
 
 - Open the `Launcher` script in your code editor.
 - At the bottom of the `Launcher` script, add the following:
