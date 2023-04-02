@@ -86,7 +86,6 @@ using Photon.Pun
 public class PlayerController : MonoBehaviourPunCallbacks
 {
   //..
-
   void Update()
   {
     // Check if we have authority over the current player
@@ -170,7 +169,6 @@ private void Shoot() {
   if (Physics.Raycast(ray, out RaycastHit hit))
   {
     // ..
-
     if (hit.collider.gameObject.CompareTag("Player"))
     {
       Debug.Log("We hit " + hit.collider.gameObject.GetPhotonView().Owner.NickName + "!");
@@ -229,16 +227,41 @@ public void DealDamage(string damager)
 private void Shoot()
 {
   //..
-
   if (Physics.Raycast(ray, out RaycastHit hit))
   {
     // ..
-
     if (hit.collider.gameObject.CompareTag("Player"))
     {
       // ..
       hit.collider.gameObject.GetPhotonView().RPC("DealDamage", RpcTarget.All, photonView.Owner.NickName); ;
     }
   }
+}
+```
+
+## [Taking Hits](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989206#questions)
+
+To create a more interesting shooting interaction, follow these steps to implement a "TakeDamage" function and deactivate the player when they are hit:
+
+- In the `PlayerController` script, create a new public function called `TakeDamage` below the `DealDamage` function.
+- Make the `TakeDamage` function take a string parameter called `Damager`. Later on, you can also add the amount of damage and more specific references to your characters.
+- Move the debug log from the `DealDamage` function to the `TakeDamage` function, and change the message to include the name of the PhotonView owner being hit by the damager.
+- In the `DealDamage` function, call the `TakeDamage` function, passing on the damager information.
+- In the `TakeDamage` function, add a line to deactivate the player's GameObject by calling `gameObject.SetActive(false)`.
+- Save the script, build, and run the game to test the functionality.
+
+Now, when a player is shot, their GameObject will be deactivated, and the debug log will display which player has been hit by the damager. In the future, you can enhance this functionality by removing the player from the game and respawning them after a certain period.
+
+```cs
+[PunRPC]
+public void DealDamage(string damager)
+{
+  TakeDamage(damager);
+}
+
+public void TakeDamage(string damager)
+{
+  Debug.Log(photonView.Owner.NickName + " has been hit by " + damager);
+  gameObject.SetActive(false);
 }
 ```
