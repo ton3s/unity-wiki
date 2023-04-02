@@ -16,7 +16,7 @@ Here are the steps to set up a player prefab to work with Photon Networking and 
 ## [Spawning Players](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989194#questions)
 
 - In the `Map 1` scene, create an empty GameObject and name it `Player Spawner` .
-- In your `Scripts` folder, create a new C# script called "PlayerSpawner" and attach it to the `Player Spawner` GameObject.
+- In your `Scripts` folder, create a new C# script called `PlayerSpawner` and attach it to the `Player Spawner` GameObject.
 - Add the following code in the `PlayerSpawner` script:
 
 ```cs
@@ -106,3 +106,44 @@ public class PlayerController : MonoBehaviourPunCallbacks
   }
 }
 ```
+
+## [Auto Returning To Menu](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989198#questions)
+
+- Create a new script called `MatchManager` in the Scripts folder.
+- In the scene, create an empty GameObject named `MatchManager` and attach the MatchManager script to it.
+- Open the MatchManager script and add the following:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
+
+public class MatchManager : MonoBehaviour
+{
+  public static MatchManager instance;
+
+  private void Awake()
+  {
+    instance = this;
+  }
+
+  // Start is called before the first frame update
+  void Start()
+  {
+      // If we are not connected to the network, load the main menu
+    if (!PhotonNetwork.IsConnected)
+    {
+      SceneManager.LoadScene(0);
+    }
+  }
+}
+```
+
+- Save the script and test it in Unity to ensure that the main menu loads when not connected to the network.
+- To fix the lighting issue in the editor, stop the game, then open `Window > Rendering > Lighting`.
+- Dock the Lighting window next to the Inspector.
+- Create new lighting settings for general use in your game by clicking `New Lighting Settings` and saving it in the `Assets` folder.
+- With the scene open, scroll down in the Lighting window and click `Generate Lighting` to examine and apply the lighting settings to the scene.
+- Save the scene and test the game again to see the improved lighting in the editor.
