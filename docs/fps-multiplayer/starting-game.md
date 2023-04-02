@@ -364,10 +364,10 @@ public void StartGame()
 public override void OnJoinedRoom()
 {
   //..
-  checkTheMaster();
+  CheckTheMaster();
 }
 
-private void checkTheMaster()
+private void CheckTheMaster()
 {
   // Check if we are the master
   if (PhotonNetwork.IsMasterClient)
@@ -392,8 +392,46 @@ private void checkTheMaster()
 ```cs
 public override void OnMasterClientSwitched(Player newMasterClient)
 {
-  checkTheMaster();
+  CheckTheMaster();
 }
 ```
 
 ![Change Master](images/change-master.png)
+
+## [Editor Test Button](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25988020#questions)
+
+- In Unity, add a new button called `Test Button` to your menu buttons with the label `Create Test Room`. Make sure the button is deactivated by default.
+- In your `Launcher` script, add a `public GameObject roomTestButton`.
+- Add a preprocessor directive to check if the game is running in the Unity Editor:
+
+```cs
+void Start()
+{
+  //..
+
+  #if UNITY_EDITOR
+  roomTestButton.SetActive(true);
+  #endif
+}
+```
+
+- Create a new public method called `QuickJoin()` in the `Launcher` script:
+
+```cs
+public void QuickJoin()
+{
+  RoomOptions options = new RoomOptions();
+  options.MaxPlayers = MAX_PLAYERS;
+  PhotonNetwork.CreateRoom("Test Room");
+  CloseMenus();
+  loadingText.text = "Creating Test Room";
+  loadingScreen.SetActive(true);
+}
+```
+
+- In Unity, assign the `QuickJoin()` function to the `Test Button's OnClick` event.
+- In the `Launcher` script, assign the `Test Button` GameObject to the `roomTestButton` variable.
+- Test the functionality in the Unity Editor by clicking Play. The Test Button should appear, allowing you to create and join a test room quickly.
+- Build the game and verify that the Test Button does not appear in the built version of the game.
+
+![Test Button](images/test-button.png)
