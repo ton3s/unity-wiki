@@ -65,3 +65,44 @@ void Start()
   - transform.rotation = spawnPoint.rotation;
 }
 ```
+
+## [Controlling One Player](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989196#questions/19422876)
+
+Here is a summary of the steps to make it so players can only control themselves and not anybody else:
+
+- Open your `PlayerControl` script.
+- Add `using Photon.Pun; at the top of the script to include the Photon namespace.
+- Replace `MonoBehaviour` with `MonoBehaviourPunCallbacks` to access the Photon systems.
+- Modify the `LateUpdate` function to update the camera's position only if the player is in control.
+- At the start of the `Update` function, add `if (photonView.IsMine)` to only execute the move input and other actions if the player is in control.
+- Save the script and go back to Unity.
+- Build and test the game to ensure that each player can only control their own character and not other players.
+
+`PlayerControl.cs`
+
+```cs
+using Photon.Pun
+
+public class PlayerController : MonoBehaviourPunCallbacks
+{
+  //..
+
+  void Update()
+  {
+    // Check if we have authority over the current player
+    if (photonView.IsMine)
+    {
+      //..
+    }
+  }
+
+  void LateUpdate()
+  {
+    // Check if we have authority over the current player
+    if (photonView.IsMine)
+    {
+      //..
+    }
+  }
+}
+```
