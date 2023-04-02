@@ -363,11 +363,12 @@ public void StartGame()
 ```cs
 public override void OnJoinedRoom()
 {
-  CloseMenus();
-  roomScreen.SetActive(true);
-  roomNameText.text = PhotonNetwork.CurrentRoom.Name;
-  ListAllPlayers();
+  //..
+  checkTheMaster();
+}
 
+private void checkTheMaster()
+{
   // Check if we are the master
   if (PhotonNetwork.IsMasterClient)
   {
@@ -383,3 +384,16 @@ public override void OnJoinedRoom()
 - Assign the start button in the menu canvas to the appropriate button in the room panel.
 - Save and build the game again to test the changes.
 - After completing these steps, the start game button should only be active for the master client, and pressing it should load the specified level for all players in the room.
+
+## [Switching Masters](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25988004#questions)
+
+- To ensure the `Start Game` button is available for a new master if the current master leaves the room, add the following:
+
+```cs
+public override void OnMasterClientSwitched(Player newMasterClient)
+{
+  checkTheMaster();
+}
+```
+
+![Change Master](images/change-master.png)
