@@ -147,3 +147,59 @@ public class MatchManager : MonoBehaviour
 - Create new lighting settings for general use in your game by clicking `New Lighting Settings` and saving it in the `Assets` folder.
 - With the scene open, scroll down in the Lighting window and click `Generate Lighting` to examine and apply the lighting settings to the scene.
 - Save the scene and test the game again to see the improved lighting in the editor.
+
+## [Showing Player Impacts](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989200#questions)
+
+- Create a `Player Hit Impact` effect prefab by duplicating an existing `Bullet Impact` prefab and modifying it to suit the game's theme.
+- Add the new prefab to the `Resources` folder.
+- Add a `DestroyOverTime` script to the prefab so it destroys itself after a specified time.
+- Add a `Photon View` component to the prefab and set it up to synchronize the position.
+- In the `PlayerController` script, add a `public GameObject playerHitImpact` prefab.
+- Assign the `Player tag` to the player object in Unity.
+- Modify the shoot function in the Player Controller script to check if the object hit has the Player tag. If it does, instantiate the player hit impact effect at the hit point using Photon Network. If not, instantiate the normal bullet impact effect.
+- Add a debug log to display the name of the player being hit (this is for testing purposes only and can be removed later).
+
+`PlayerController.cs`
+
+```cs
+public GameObject playerHitImpact;
+
+private void Shoot() {
+  //..
+
+  if (Physics.Raycast(ray, out RaycastHit hit))
+  {
+    // ..
+
+    if (hit.collider.gameObject.CompareTag("Player"))
+    {
+      Debug.Log("We hit " + hit.collider.gameObject.GetPhotonView().Owner.NickName + "!");
+      PhotonNetwork.Instantiate(playerHitImpact.name, hit.point, Quaternion.identity);
+    }
+    else
+    {
+      GameObject bulletImpactObject = Instantiate(bulletImpact, hit.point + (hit.normal * 0.02f), Quaternion.LookRotation(hit.normal, Vector3.up));
+      Destroy(bulletImpactObject, 5f);
+    }
+  }
+}
+```
+
+`DestroyOverTime.cs`
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DestroyOverTime : MonoBehaviour
+{
+  public float lifetime = 1.5f;
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    Destroy(gameObject, lifetime);
+  }
+}
+```
