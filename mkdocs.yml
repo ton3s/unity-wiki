@@ -528,3 +528,4 @@ nav:
       - Get Connected: fps-multiplayer/get-connected.md
       - Room Browsing, Nicknames & Starting a Game: fps-multiplayer/starting-game.md
       - Players On The Network: fps-multiplayer/players-on-network.md
+      - Players Health System: fps-multiplayer/players-health-system.md
