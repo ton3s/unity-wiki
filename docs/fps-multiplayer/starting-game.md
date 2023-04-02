@@ -254,3 +254,87 @@ public override void OnPlayerLeftRoom(Player otherPlayer)
   ListAllPlayers();
 }
 ```
+
+## [Players Nickname](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987998#questions/15685310)
+
+- Duplicate the `Create Room` panel and rename it as `Name Input Panel`.
+- Modify the input field placeholder to say `Enter Username Here`.
+- Update the launcher script with new references:
+
+```cs
+public GameObject nameInputScreen;
+public TMP_InputField nameInputField;
+private bool hasSetNickname;
+```
+
+- In the `OnJoinLobby()` function, add the following code:
+
+```cs
+if (!hasSetNickname) {
+  CloseMenus();
+  nameInputScreen.SetActive(true);
+}
+```
+
+- Update the `CloseMenus()` function to set `nameInputScreen.SetActive(false)`:
+
+```cs
+void CloseMenus()
+{
+  //..
+  nameInputScreen.SetActive(false);
+}
+```
+
+- Create a new function `SetNickname()`:
+
+```cs
+public void SetNickname()
+{
+  if (!string.IsNullOrEmpty(nameInputField.text))
+  {
+      PhotonNetwork.NickName = nameInputField.text;
+      CloseMenus();
+      menuButtons.SetActive(true);
+      hasSetNickname = true;
+  }
+}
+```
+
+- In Unity, assign the `nameIputField` and `nameInputSCreen` to the appropriate references in the `Launcher` script.
+- Update the button in `Name Input Panel` to call `SetNickname()` function.
+- To store the player name between game sessions, use `PlayerPrefs`:
+
+```cs
+public override void OnJoinedLobby()
+{
+  //..
+  if (!hasSetNickname)
+  {
+    //..
+    if (PlayerPrefs.HasKey("playerName"))
+    {
+      nameInputField.text = PlayerPrefs.GetString("playerName");
+    }
+  }
+  else
+  {
+    PhotonNetwork.NickName = PlayerPrefs.GetString("playerName");
+  }
+}
+
+public void SetNickname()
+{
+  if (!string.IsNullOrEmpty(nameInputField.text))
+  {
+    PhotonNetwork.NickName = nameInputField.text;
+    PlayerPrefs.SetString("playerName", nameInputField.text);
+    //..
+  }
+}
+
+```
+
+- Test the game in Unity to see if the player names are being saved and displayed correctly in the game.
+
+![Set Username](images/set-username.png)
