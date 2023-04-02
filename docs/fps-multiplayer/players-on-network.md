@@ -203,3 +203,42 @@ public class DestroyOverTime : MonoBehaviour
   }
 }
 ```
+
+## [Shooting With RPCs](https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25989204#questions)
+
+In order to send information across the network to let others know when a player has been hit:
+
+- In the `PlayerController` script, create a new public function called `DealDamage` below the `Shoot` function.
+- Before the `DealDamage` function, type in square brackets and `PunRPC` to make it a Photon Remote Procedure Call (RPC). This will allow the function to run at the same time on every copy of the player on the network.
+- Inside the `DealDamage` function, add a debug log that says `I've been hit` for now.
+- Modify the `DealDamage` function to take in a string parameter called `Damager` and update the debug log to include the damager's name.
+- When shooting, get the PhotonView component of the object that was hit.
+- Call the `DealDamage` RPC function using the PhotonView.RPC method, passing in the function's name as a string, the target (in this case, `RpcTarget.All`), and the shooter's nickname as the `Damager` parameter.
+- Save the script, build and run the game to test the functionality.
+
+Now, when shooting a player, the `I've been hit` message will be displayed along with the name of the player who inflicted the damage. This basic shooting functionality will serve as a foundation for further development, such as updating player health and handling player death.
+
+```cs
+[PunRPC]
+public void DealDamage(string damager)
+{
+  // This will be sent to every player
+  Debug.Log("I've been hit by " + damager);
+}
+
+private void Shoot()
+{
+  //..
+
+  if (Physics.Raycast(ray, out RaycastHit hit))
+  {
+    // ..
+
+    if (hit.collider.gameObject.CompareTag("Player"))
+    {
+      // ..
+      hit.collider.gameObject.GetPhotonView().RPC("DealDamage", RpcTarget.All, photonView.Owner.NickName); ;
+    }
+  }
+}
+```
