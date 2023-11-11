@@ -270,7 +270,7 @@ theme:
 
   # Navigation:
   #
-  - navigation.expand # Expand all collapsable sections.
+  #- navigation.expand # Expand all collapsable sections.
   #- navigation.instant     # Instant loading pages.
   #- navigation.indexes     # Attach pages directly to Sections. Incompatible with "toc.integrate"
   #- navigation.sections # Render top sections as groups.
@@ -520,6 +520,9 @@ markdown_extensions:
 # +--------------------------------------------------------------------------------------------------------+
 nav:
  - Overview: index.md
+ - Mirror:
+    - Overview: mirror/overview.md
+ - Photon Engine: pun-engine/overview.md
  - FPS Multiplayer:
     - Overview: fps-multiplayer/overview.md
     - The Player: fps-multiplayer/the-player.md
@@ -529,6 +532,3 @@ nav:
     - Room Browsing, Nicknames & Starting a Game: fps-multiplayer/starting-game.md
     - Players On The Network: fps-multiplayer/players-on-network.md
     - Players Health System: fps-multiplayer/players-health-system.md
- - Photon PUN v2: pun-v2/overview.md
- - Mirror:
-    - Overview: mirror/overview.md
