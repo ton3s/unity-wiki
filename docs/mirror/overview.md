@@ -10,12 +10,18 @@ https://github.com/ton3s/apocalypse
 - [x] Setup third person controller with Synty characters
 - [x] Add mirror to allow multiple Synty characters in the scene
 - [x] Add Synty character selection
-- [ ] Setup shared status bar
+- [x] Setup shared status bar
 - [x] Setup solo character animation
 - [x] Refactor to use command pattern for additional animations
-- [ ] Add character network pickup objects
+- [x] Number of connected people
+- [x] Add spawned network pickup objects
+- [x] Allow players to pickup objects
+- [x] Track score of people picking up objects
 - [ ] Get character to sit in a chair
 - [ ] Add smooth camera zoom
+- [ ] Add spatial audio when person picks up
+- [ ] Travel between scenes
+- [ ] Configure state pattern for presents, (Spawning, Idle, Despawning, Collected)
 
 ## References
 
