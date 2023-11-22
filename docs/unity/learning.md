@@ -2,6 +2,8 @@ Following are the various learning tasks to work through to build a proficiency 
 
 ## Unity Development Cookbook - 2nd Edition
 
+> https://github.com/ton3s/unity-development-cookbook
+
 ### Working in Unity
 
 - [ ] 1.1. Getting Around in Unity
@@ -87,9 +89,9 @@ Following are the various learning tasks to work through to build a proficiency 
 
 ### 3D Physics and Character Control
 
-- [ ] 7.1. Running Code a Specific Number of Times per Second
-- [ ] 7.2. Allowing the Player to Look Around Using the Mouse
-- [ ] 7.3. Controlling a 3D Character
+- [x] 7.1. Running Code a Specific Number of Times per Second
+- [x] 7.2. Allowing the Player to Look Around Using the Mouse
+- [x] 7.3. Controlling a 3D Character
 - [ ] 7.4. Interacting with Switches and Objects
 - [ ] 7.5. Picking Up and Putting Down Objects
 - [ ] 7.6. Detecting When an Object Is Touching Another Object
