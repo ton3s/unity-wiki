@@ -1,4 +1,6 @@
-Following are the various learning tasks to work through to build a proficiency in building immersives worlds in Unity
+# Unity Books
+
+Following are the various learning tasks in books to work through to build a proficiency in building immersives worlds in Unity
 
 ## Unity Development Cookbook - 2nd Edition
 
@@ -92,7 +94,7 @@ https://github.com/ton3s/unity-development-cookbook
 - [x] 7.1. Running Code a Specific Number of Times per Second
 - [x] [7.2. Allowing the Player to Look Around Using the Mouse](https://github.com/ton3s/unity-development-cookbook/tree/7_2)
 - [x] [7.3. Controlling a 3D Character](https://github.com/ton3s/unity-development-cookbook/tree/7_3)
-- [ ] 7.4. Interacting with Switches and Objects
+- [x] [7.4. Interacting with Switches and Objects](https://github.com/ton3s/unity-development-cookbook/tree/7_4)
 - [ ] 7.5. Picking Up and Putting Down Objects
 - [ ] 7.6. Detecting When an Object Is Touching Another Object
 - [ ] 7.7. Detecting When an Object Is in a Trigger Area
