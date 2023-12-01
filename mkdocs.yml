@@ -520,7 +520,10 @@ markdown_extensions:
 # +--------------------------------------------------------------------------------------------------------+
 nav:
  - Overview: index.md
- - Unity Learning: unity/learning.md
+ - Unity Learning:
+    - Books: unity/books.md
+    - Youtube: unity/youtube.md
+    - Add-Ons: unity/add-ons.md
  - Mirror:
     - Overview: mirror/overview.md
  - Photon Engine: pun-engine/overview.md

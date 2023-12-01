@@ -95,7 +95,7 @@ https://github.com/ton3s/unity-development-cookbook
 - [x] [7.2. Allowing the Player to Look Around Using the Mouse](https://github.com/ton3s/unity-development-cookbook/tree/7_2)
 - [x] [7.3. Controlling a 3D Character](https://github.com/ton3s/unity-development-cookbook/tree/7_3)
 - [x] [7.4. Interacting with Switches and Objects](https://github.com/ton3s/unity-development-cookbook/tree/7_4)
-- [ ] 7.5. Picking Up and Putting Down Objects
+- [x] [7.5. Picking Up and Putting Down Objects](https://github.com/ton3s/unity-development-cookbook/tree/7_5)
 - [ ] 7.6. Detecting When an Object Is Touching Another Object
 - [ ] 7.7. Detecting When an Object Is in a Trigger Area
 - [ ] 7.8. Implementing Moving Platforms
