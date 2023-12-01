@@ -96,8 +96,8 @@ https://github.com/ton3s/unity-development-cookbook
 - [x] [7.3. Controlling a 3D Character](https://github.com/ton3s/unity-development-cookbook/tree/7_3)
 - [x] [7.4. Interacting with Switches and Objects](https://github.com/ton3s/unity-development-cookbook/tree/7_4)
 - [x] [7.5. Picking Up and Putting Down Objects](https://github.com/ton3s/unity-development-cookbook/tree/7_5)
-- [ ] 7.6. Detecting When an Object Is Touching Another Object
-- [ ] 7.7. Detecting When an Object Is in a Trigger Area
+- [x] [7.6. Detecting When an Object Is Touching Another Object](https://github.com/ton3s/unity-development-cookbook/tree/7_6)
+- [x] [7.7. Detecting When an Object Is in a Trigger Area](<(https://github.com/ton3s/unity-development-cookbook/tree/7_7)>)
 - [ ] 7.8. Implementing Moving Platforms
 - [ ] 7.9. Implementing Platform Riding
 - [ ] 7.10. Responding to Being Pushed by Objects
