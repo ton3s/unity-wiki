@@ -521,6 +521,7 @@ markdown_extensions:
 nav:
  - Overview: index.md
  - Unity Learning:
+    - Dissonance: unity/dissonance.md
     - Books: unity/books.md
     - Youtube: unity/youtube.md
     - Add-Ons: unity/add-ons.md
