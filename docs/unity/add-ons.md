@@ -23,3 +23,4 @@
 ## Templates
 
 - [Survival Engine Online](https://assetstore.unity.com/packages/templates/systems/survival-engine-online-233322)
+- [Colony Simulator](https://assetstore.unity.com/packages/templates/systems/colony-simulator-209446)
