@@ -1,4 +1,4 @@
-# Unity Add-Ons
+# Unity Assets
 
 ## Utilities
 
@@ -24,3 +24,4 @@
 
 - [Survival Engine Online](https://assetstore.unity.com/packages/templates/systems/survival-engine-online-233322)
 - [Colony Simulator](https://assetstore.unity.com/packages/templates/systems/colony-simulator-209446)
+- [Mini Map](https://assetstore.unity.com/packages/tools/gui/map-and-minimap-187588)
