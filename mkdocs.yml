@@ -527,6 +527,7 @@ nav:
     - Assets: unity/assets.md
  - Mirror:
     - Overview: mirror/overview.md
+    - Networked Objects: mirror/networked-objects.md
  - Photon Engine: pun-engine/overview.md
  - FPS Multiplayer:
     - Overview: fps-multiplayer/overview.md
