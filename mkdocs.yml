@@ -539,4 +539,5 @@ nav:
     - Players On The Network: fps-multiplayer/players-on-network.md
     - Players Health System: fps-multiplayer/players-health-system.md
  - 2D Games:
-    - Notes: 2d-games/notes.md
+    - Sprite Sheet: 2d-games/sprite-sheet.md
+    - Animator: 2d-games/animator.md
