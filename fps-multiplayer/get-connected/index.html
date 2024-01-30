@@ -1,0 +1,1356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wiki to document course notes">
+      
+      
+        <meta name="author" content="Antonio Cunanan">
+      
+      
+      
+        <link rel="prev" href="../making-a-level/">
+      
+      
+        <link rel="next" href="../starting-game/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Get Connected - Unity Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get-connected" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Unity Wiki" class="md-header__button md-logo" aria-label="Unity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unity Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Get Connected
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+
+<a
+	href="https://github.com/ton3s/unity-wiki"
+	title=""
+	style="
+		display: block;
+		font-size: 0.65rem;
+		line-height: 1.2;
+		white-space: nowrap;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		transition: opacity 250ms;
+	"
+>
+	<div class="md-source__icon md-icon">
+		 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+	</div>
+	<div class="md-source__repository">ton3s/unity-wiki</div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Unity Wiki" class="md-nav__button md-logo" aria-label="Unity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Unity Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+<a
+	href="https://github.com/ton3s/unity-wiki"
+	title=""
+	style="
+		display: block;
+		font-size: 0.65rem;
+		line-height: 1.2;
+		white-space: nowrap;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		transition: opacity 250ms;
+	"
+>
+	<div class="md-source__icon md-icon">
+		 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+	</div>
+	<div class="md-source__repository">ton3s/unity-wiki</div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Unity Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unity Learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unity/dissonance/" class="md-nav__link">
+        Dissonance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unity/books/" class="md-nav__link">
+        Books
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unity/youtube/" class="md-nav__link">
+        Youtube
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unity/assets/" class="md-nav__link">
+        Assets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Mirror
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mirror
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mirror/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mirror/networked-objects/" class="md-nav__link">
+        Networked Objects
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pun-engine/overview/" class="md-nav__link">
+        Photon Engine
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          FPS Multiplayer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          FPS Multiplayer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../the-player/" class="md-nav__link">
+        The Player
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shooting-weapons/" class="md-nav__link">
+        Shooting & Weapons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../making-a-level/" class="md-nav__link">
+        Making A Level
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Get Connected
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Get Connected
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-photon" class="md-nav__link">
+    Setting Up Photon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laying-out-the-connection-menu" class="md-nav__link">
+    Laying Out The Connection Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-server" class="md-nav__link">
+    Connecting To The Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-room-creation" class="md-nav__link">
+    Setting Up Room Creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-room" class="md-nav__link">
+    Creating A Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-the-created-room" class="md-nav__link">
+    Joining The Created Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-creation-errors" class="md-nav__link">
+    Handling Creation Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leaving-a-room" class="md-nav__link">
+    Leaving A Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launchercs" class="md-nav__link">
+    Launcher.cs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../starting-game/" class="md-nav__link">
+        Room Browsing, Nicknames & Starting a Game
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../players-on-network/" class="md-nav__link">
+        Players On The Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../players-health-system.md" class="md-nav__link">
+        Players Health System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          2D Games
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          2D Games
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2d-games/sprite-sheet/" class="md-nav__link">
+        Sprite Sheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2d-games/animator/" class="md-nav__link">
+        Animator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-photon" class="md-nav__link">
+    Setting Up Photon
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laying-out-the-connection-menu" class="md-nav__link">
+    Laying Out The Connection Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-server" class="md-nav__link">
+    Connecting To The Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-room-creation" class="md-nav__link">
+    Setting Up Room Creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-room" class="md-nav__link">
+    Creating A Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-the-created-room" class="md-nav__link">
+    Joining The Created Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-creation-errors" class="md-nav__link">
+    Handling Creation Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leaving-a-room" class="md-nav__link">
+    Leaving A Room
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launchercs" class="md-nav__link">
+    Launcher.cs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ton3s/unity-wiki/tree/master/docs/fps-multiplayer/get-connected.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ton3s/unity-wiki/tree/master/docs/fps-multiplayer/get-connected.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="get-connected">Get Connected<a class="headerlink" href="#get-connected" title="Permanent link">&para;</a></h1>
+<h2 id="setting-up-photon"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987962#questions">Setting Up Photon</a><a class="headerlink" href="#setting-up-photon" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Install PUN2 from the Unity Asset Store: https://assetstore.unity.com/packages/tools/network/pun-2-free-119922</li>
+<li>Before importing into our project, de-select the demo checkboxes</li>
+<li>Create an account here: https://www.photonengine.com/</li>
+<li>Create a new app and note the <code>app id</code>. This will be required as part of the PUN setup in Unity.</li>
+<li>Under <code>Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings</code>, change <code>Fixed Region</code> to <code>us</code></li>
+</ul>
+<h2 id="laying-out-the-connection-menu"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987964#questions">Laying Out The Connection Menu</a><a class="headerlink" href="#laying-out-the-connection-menu" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create a new scene for the main menu and save it in the <code>scenes</code> folder as <code>main menu</code>.</li>
+<li>Set up the basic buttons for the menu by creating a UI canvas, renaming it to <code>menu canvas</code>, and adjusting the canvas settings to scale with screen size.</li>
+<li>Add a title text to the top of the canvas to display the name of the game.</li>
+<li>Create buttons for the menu system by adding UI button elements and customizing their appearance, size, and position.</li>
+<li>Convert the button into a prefab by dragging it into the prefabs folder. This allows for easy reuse of the button design in different scenes.</li>
+<li>Create additional buttons for different menu options such as <code>Find Room</code>, <code>Create Room</code>, and <code>Quit Game</code>. Customize the text and appearance of each button as needed.</li>
+<li>Organize the buttons using a Vertical Layout Group component in a parent object called <code>menu buttons</code>. Adjust the positioning and spacing of the buttons within the layout.</li>
+<li>Add a loading panel by creating a UI panel element. Customize the panel's appearance, size, and position to display loading information.</li>
+<li>Add loading text to the loading panel using a UI TextMeshPro element. Customize the text appearance and positioning.</li>
+<li>Import a 3D model of a city as a background for the menu scene. Adjust the position and rotation of the camera to create a visually appealing view.</li>
+<li>Save the scene and proceed to the next steps, which will involve connecting the menu buttons to the actual game functionality.</li>
+</ul>
+<h2 id="connecting-to-the-server"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987966#questions">Connecting To The Server</a><a class="headerlink" href="#connecting-to-the-server" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create a new script called <code>Launcher</code> and open it in the script editor.</li>
+<li>Make the launcher a static instance (<code>public static Launcher instance</code>).</li>
+<li>In the <code>Awake()</code> function, assign the instance to <code>this</code>.</li>
+<li>Import Photon Unity Networking by adding <code>using Photon.Pun</code> at the top of the script.</li>
+<li>Replace <code>MonoBehaviour</code> with <code>MonoBehaviourPunCallbacks</code>.</li>
+<li>Add references for the loading screen, menu buttons, and loading text (TeåxtMeshPro element).</li>
+<li>Create a void function called <code>CloseMenus()</code> to close any open menus.</li>
+<li>In the <code>Start()</code> function, close all menus, then set the loading screen active and update the loading text to say <code>Connecting to Network.</code></li>
+<li>Connect to the Photon network using <code>PhotonNetwork.ConnectUsingSettings()</code>.</li>
+<li>Create a public override void function called <code>OnConnectedToMaster()</code>.</li>
+<li>In OnConnectedToMaster(), join the lobby using <code>PhotonNetwork.JoinLobby()</code> and update the loading text to say <code>Joining Lobby.</code></li>
+<li>Remove the menu buttons activation code from <code>OnConnectedToMaster()</code> as it will be moved to another function.</li>
+<li>Create another override void function called <code>OnJoinedLobby()</code>.</li>
+<li>In <code>OnJoinedLobby()</code>, activate the menu buttons.</li>
+</ul>
+<p>After completing these steps, you should have a basic networking system in place. When the game starts, it will display a loading screen with the text <code>Connecting to Network,</code> then briefly change to <code>Joining Lobby</code> before displaying the menu buttons. From this point, you can continue to implement creating and joining rooms for your game.</p>
+<p><code>Launcher.cs</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Photon.Pun</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.UI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Unity.VisualScripting</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TMPro</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Launcher</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviourPunCallbacks</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Launcher</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">loadingScreen</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">loadingText</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">menuButtons</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="n">DontDestroyOnLoad</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Start is called before the first frame update</span>
+<span class="w">  </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Connecting To Network...&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">ConnectUsingSettings</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">void</span><span class="w"> </span><span class="nf">CloseMenus</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnConnectedToMaster</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">JoinLobby</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Joining Lobby...&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnJoinedLobby</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="setting-up-room-creation"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987970#questions">Setting Up Room Creation</a><a class="headerlink" href="#setting-up-room-creation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Duplicate the existing <code>Loading Panel</code> and rename it to <code>Create Room Panel.</code></li>
+<li>Open the new panel and remove the <code>loading text.</code></li>
+<li>Add a <code>UI &gt; Input Field - TextMeshPro</code> and rename it to <code>Room Name Input Field</code> to let users input the room's name.</li>
+<li>Set the input field's width to 800 and height to 100.</li>
+<li>Modify the placeholder text to guide the user (e.g., <code>enter room name here</code>) and adjust the font style and size.</li>
+<li>Center the text component and adjust its font style and size.</li>
+<li>Add a button to the panel, name it <code>Create Room</code> button, and position it appropriately.</li>
+<li>Deactivate the <code>Create Room Panel.</code></li>
+<li>In the <code>Launcher</code> script, create references to the <code>Room Input Field</code> and the <code>Create Room Panel</code> by declaring two public variables.</li>
+<li>Add the <code>Create Room Panel</code> to the list of <code>closable menus.</code></li>
+<li>Create a new function called <code>OpenRoomCreate()</code> to open the room creation screen and set the <code>Create Room panel</code> to active.</li>
+<li>In Unity, connect the <code>Create Room Panel</code> and the input field to the public variables in the script.</li>
+<li>Set up the <code>Create Room</code> button to call the <code>OpenRoomCreate()</code> function when clicked.</li>
+<li>Test the <code>room creation panel</code> in Unity by playing the game and clicking the <code>Create Room</code> button.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">createRoomScreen</span><span class="p">;</span>
+<span class="k">public</span><span class="w"> </span><span class="n">TMP_InputField</span><span class="w"> </span><span class="n">roomInputField</span><span class="p">;</span>
+
+<span class="k">void</span><span class="w"> </span><span class="nf">CloseMenus</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">//..</span>
+<span class="w">  </span><span class="n">createRoomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OpenRoomCreate</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">createRoomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="Create Room" src="../images/create-room.png" /></p>
+<h2 id="creating-a-room"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987972#questions">Creating A Room</a><a class="headerlink" href="#creating-a-room" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In the <code>Launcher</code> script, create a new function called "CreateRoom()"</li>
+<li>Save the script and assign the function to the "Create Room" button in Unity.</li>
+<li>Go back to the script and add an if statement to ensure that the player has entered a room name.</li>
+<li>Use the <code>string.IsNullOrEmpty()</code> function to check if the input field is empty.</li>
+<li>If the input field is not empty, call <code>PhotonNetwork.CreateRoom()</code> to create a new room with the player's input as the room name.</li>
+<li>To set a maximum number of players for the room, create a reference to the <code>RoomOptions</code> class. This requires adding <code>using Photon.Realtime;</code> at the top of the script.</li>
+<li>Create a <code>RoomOptions</code> variable called <code>options</code> and set it to a <code>new RoomOptions</code> instance.</li>
+<li>Set the maximum number of players for the room by assigning a value to options.MaxPlayers (e.g., <code>options.MaxPlayers = 8;</code>).</li>
+<li>Pass the <code>options</code> variable as a parameter when creating the room with <code>PhotonNetwork.CreateRoom()</code>.</li>
+<li>Close any open menus, set the loading text to <code>Creating Room</code>, and activate the loading screen.</li>
+<li>Save the script and test the room creation functionality in Unity.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Photon.Realtime</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateRoom</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">roomInputField</span><span class="p">.</span><span class="n">text</span><span class="p">))</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RoomOptions</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RoomOptions</span><span class="p">();</span>
+<span class="w">    </span><span class="n">options</span><span class="p">.</span><span class="n">MaxPlayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">CreateRoom</span><span class="p">(</span><span class="n">roomInputField</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Creating Room...&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="joining-the-created-room"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987976#questions">Joining The Created Room</a><a class="headerlink" href="#joining-the-created-room" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Close the <code>Create Room</code> panel in the Unity editor.</li>
+<li>Duplicate the <code>Loading Panel</code>, and rename the new panel to <code>Room Panel.</code></li>
+<li>Make the <code>Room Panel</code> visible.</li>
+<li>Modify the loading text to <code>Room Name Text,</code> move it to the top of the screen, and adjust its anchors accordingly.</li>
+<li>Add a UI button to the room panel, anchor it to the bottom, name it <code>Leave Button,</code> and set its text to <code>Leave Room.</code></li>
+<li>In the <code>Launcher</code> script, create references to the room panel and room text.</li>
+<li>Add <code>public GameObject roomScreen</code> and <code>public TextMeshProUGUI</code>roomNameText` variables.</li>
+<li>In the same script, scroll down to the <code>Create Room</code> section, and create a new override method: <code>override void OnJoinedRoom()</code>. Remove the base method call, so only your custom functionality remains.</li>
+<li>Inside the <code>OnJoinedRoom()</code> method, first, close the menus by ensuring that <code>roomScreen.SetActive(false)</code> is called.</li>
+<li>Set <code>roomScreen.SetActive(true)</code> to make the room screen visible when the player joins the room.</li>
+<li>Update the room name text by setting <code>roomNameText.text = PhotonNetwork.CurrentRoom.Name;</code> This displays the name of the currently connected room.</li>
+<li>Save the script and return to the Unity editor to let it compile.</li>
+<li>Assign the <code>roomScreen</code> and <code>roomNameText</code> references in the <code>Launcher</code> script component within the Unity editor.</li>
+<li>Test the functionality by playing the Unity project. Enter a menu, create a room, and observe that the room is joined, displaying the room information on the room panel.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">roomScreen</span><span class="p">;</span>
+<span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">roomNameText</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnJoinedRoom</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">roomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="n">roomNameText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">CurrentRoom</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="My Room" src="../images/my-room.png" /></p>
+<h2 id="handling-creation-errors"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987978#questions">Handling Creation Errors</a><a class="headerlink" href="#handling-creation-errors" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create an <code>Error Panel</code> by duplicating the <code>Loading Panel</code> and renaming it to <code>error panel.</code></li>
+<li>Change the error panel's text to <code>Error Text</code> and set its color to <code>red</code> to indicate a warning.</li>
+<li>Add a <code>Close</code> button at the bottom of the error panel to allow users to close the error screen.</li>
+<li>In the <code>Launcher</code> script, add a <code>public GameObject errorScreen</code> and a <code>public TextMeshProUGUI errorText</code> for references to the error panel and its text.</li>
+<li>In the <code>CloseMenus()</code> function, add <code>errorScreen.SetActive(false);</code> to hide the error screen when other menus are closed.</li>
+<li>In the <code>Launcher</code> script, create an override method for handling room creation failure: <code>public override void OnCreateRoomFailed(short returnCode, string message)</code></li>
+<li>Inside the <code>OnCreateRoomFailed()</code> method, set the error text to display the failure message: <code>errorText.text = "Failed to create room: " + message;</code></li>
+<li>Close other menus and activate the error screen with <code>CloseMenus();</code> and <code>errorScreen.SetActive(true);</code></li>
+<li>Create a new function to close the error screen and return to the main menu: <code>public void CloseErrorScreen().</code></li>
+<li>In the <code>CloseErrorScreen()</code> function, call <code>CloseMenus();</code> and set the main menu buttons to be active: <code>menuButtons.SetActive(true);</code></li>
+<li>In the Unity editor, assign the <code>CloseErrorScreen()</code> function to the <code>Close</code> button on the error panel.</li>
+<li>Assign the error panel and error text references in the <code>Launcher</code> script component within the Unity editor.</li>
+<li>Test the error handling functionality by running two instances of the game, creating a room with the same name in both instances, and ensuring the error message is displayed when room creation fails in the second instance.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">errorScreen</span><span class="p">;</span>
+<span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">errorText</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnCreateRoomFailed</span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="n">returnCode</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">errorText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Failed to create room: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">errorScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CloseErrorScreen</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="My Room" src="../images/same-room-error.png" /></p>
+<h2 id="leaving-a-room"><a href="https://www.udemy.com/course/unity-online-multiplayer/learn/lecture/25987984#questions">Leaving A Room</a><a class="headerlink" href="#leaving-a-room" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In the <code>Launcher</code> script, create a new public function called <code>LeaveRoom()</code> which will be called when the leave button is clicked.</li>
+<li>In the <code>LeaveRoom()</code> function, tell Photon to leave the room with the following command: <code>PhotonNetwork.LeaveRoom();</code></li>
+<li>Close the current menus by calling the <code>CloseMenus();</code> function.</li>
+<li>Update the loading text to inform the user that they are leaving the room: <code>loadingText.text = "Leaving Room...";</code></li>
+<li>Set the loading screen to active by using <code>loadingScreen.SetActive(true);</code></li>
+<li>Create a new public override function called <code>OnLeftRoom()</code> which will be called when Photon detects that the user has left the room.</li>
+<li>In the <code>OnLeftRoom()</code> function, close the current menus (which should include the loading menu) by calling <code>CloseMenus();</code></li>
+<li>Set the main menu buttons to active by using <code>menuButtons.SetActive(true);</code></li>
+<li>Save the script and return to the Unity editor.</li>
+<li>On the room panel, assign the <code>LeaveRoom()</code> function to the leave button's onClick event.</li>
+<li>Test the functionality by running the game, joining the lobby, creating a room, and then leaving the room. The loading screen should briefly appear, and the user should be returned to the main menu.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LeaveRoom</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">LeaveRoom</span><span class="p">();</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Leaving Room...&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnLeftRoom</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">  </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<h3 id="launchercs">Launcher.cs<a class="headerlink" href="#launchercs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Photon.Pun</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.UI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Unity.VisualScripting</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TMPro</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Photon.Realtime</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Launcher</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviourPunCallbacks</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Launcher</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">loadingScreen</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">loadingText</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">menuButtons</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">createRoomScreen</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">TMP_InputField</span><span class="w"> </span><span class="n">roomInputField</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">roomScreen</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">roomNameText</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">errorScreen</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">TextMeshProUGUI</span><span class="w"> </span><span class="n">errorText</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Start is called before the first frame update</span>
+<span class="w">  </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Connecting To Network...&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">ConnectUsingSettings</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">void</span><span class="w"> </span><span class="nf">CloseMenus</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">createRoomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">roomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">errorScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnConnectedToMaster</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">JoinLobby</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Joining Lobby...&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnJoinedLobby</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OpenRoomCreate</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">createRoomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateRoom</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">roomInputField</span><span class="p">.</span><span class="n">text</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">RoomOptions</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RoomOptions</span><span class="p">();</span>
+<span class="w">      </span><span class="n">options</span><span class="p">.</span><span class="n">MaxPlayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+<span class="w">      </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">CreateRoom</span><span class="p">(</span><span class="n">roomInputField</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
+<span class="w">      </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">      </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Creating Room...&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnJoinedRoom</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">roomScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">roomNameText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">CurrentRoom</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnCreateRoomFailed</span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="n">returnCode</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">errorText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Failed to create room: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">errorScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CloseErrorScreen</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LeaveRoom</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PhotonNetwork</span><span class="p">.</span><span class="n">LeaveRoom</span><span class="p">();</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">loadingText</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Leaving Room...&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">loadingScreen</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnLeftRoom</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CloseMenus</span><span class="p">();</span>
+<span class="w">    </span><span class="n">menuButtons</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../making-a-level/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Making A Level" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Making A Level
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../starting-game/" class="md-footer__link md-footer__link--next" aria-label="Next: Room Browsing, Nicknames &amp; Starting a Game" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Room Browsing, Nicknames & Starting a Game
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.tracking", "navigation.footer", "navigation.path", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
