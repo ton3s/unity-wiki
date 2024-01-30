@@ -19,3 +19,20 @@
 - Set `Transition Duration` to 0
 
 ### Flipping Character
+
+- To flip character, rotate on the `Y` axis 180 degrees
+
+```c#
+private void Flip()
+{
+	facingDir *= -1;
+	facingRight = !facingRight;
+	transform.Rotate(0, 180, 0);
+}
+
+private void FlipController()
+{
+	if (rb.velocity.x > 0 && !facingRight) Flip();
+	else if (rb.velocity.x < 0 && facingRight) Flip();
+}
+```
